@@ -36,18 +36,20 @@ class MealOptionCard extends StatelessWidget {
         padding: EdgeInsetsDirectional.all(AppPadding.p12.w),
         decoration: BoxDecoration(
           color: isSelected
-              ? ColorManager.brand.primaryTint
-              : ColorManager.background.surface,
+              ? ColorManager.brandPrimaryTint
+              : ColorManager.backgroundSurface,
           borderRadius: BorderRadius.circular(AppSize.s16.r),
           border: Border.all(
             color: isSelected
-                ? ColorManager.brand.primary
-                : ColorManager.border.subtle,
-            width: isSelected ? 1.5 : 1.0,
+                ? ColorManager.brandPrimary
+                : ColorManager.borderSubtle,
+            width: isSelected ? 2.0 : 1.0,
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.05),
+              color: isSelected
+                  ? ColorManager.brandPrimaryGlow
+                  : ColorManager.textPrimary.withValues(alpha: 0.05),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),
@@ -60,14 +62,14 @@ class MealOptionCard extends StatelessWidget {
               _mealLabel,
               style: getRegularTextStyle(
                 fontSize: FontSizeManager.s12.sp,
-                color: ColorManager.text.secondary,
+                color: ColorManager.textSecondary,
               ),
             ),
             Gap(AppSize.s8.h),
             _PriceRow(
               amount: option.priceSar.toStringAsFixed(0),
               isStrikethrough: false,
-              color: ColorManager.brand.primary,
+              color: ColorManager.brandPrimary,
               amountFontSize: FontSizeManager.s22.sp,
               labelFontSize: FontSizeManager.s12.sp,
             ),
@@ -75,7 +77,7 @@ class MealOptionCard extends StatelessWidget {
             _PriceRow(
               amount: option.compareAtSar.toStringAsFixed(0),
               isStrikethrough: true,
-              color: ColorManager.text.secondary.withValues(alpha: 0.6),
+              color: ColorManager.textSecondary.withValues(alpha: 0.6),
               amountFontSize: FontSizeManager.s16.sp,
               labelFontSize: FontSizeManager.s12.sp,
             ),

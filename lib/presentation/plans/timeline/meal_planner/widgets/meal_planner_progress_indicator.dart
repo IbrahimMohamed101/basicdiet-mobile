@@ -28,8 +28,8 @@ class MealPlannerProgressIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final isAllSelected = totalMeals > 0 && selectedMeals >= totalMeals;
     final activeColor = isAllSelected
-        ? ColorManager.brand.primary
-        : ColorManager.brand.primaryHover;
+        ? ColorManager.brandPrimary
+        : ColorManager.brandPrimaryHover;
     final hasPendingPayment = premiumPending > 0;
 
     return Column(
@@ -57,7 +57,7 @@ class MealPlannerProgressIndicator extends StatelessWidget {
                         Text(
                           "$selectedMeals ${Strings.of.tr()} $totalMeals ${Strings.meals.tr()} ${Strings.selected.tr()}",
                           style: getRegularTextStyle(
-                            color: ColorManager.black101828,
+                            color: ColorManager.textPrimary,
                             fontSize: FontSizeManager.s14.sp,
                           ),
                         ),
@@ -72,7 +72,7 @@ class MealPlannerProgressIndicator extends StatelessWidget {
                               decoration: BoxDecoration(
                                 color: isFilled
                                     ? activeColor
-                                    : ColorManager.background.subtle,
+                                    : ColorManager.backgroundSubtle,
                                 borderRadius: BorderRadius.circular(99.r),
                               ),
                             );
@@ -88,22 +88,22 @@ class MealPlannerProgressIndicator extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
               decoration: BoxDecoration(
-                color: ColorManager.brand.accentSoft,
-                border: Border.all(color: ColorManager.brand.accentBorder),
+                color: ColorManager.brandAccentSoft,
+                border: Border.all(color: ColorManager.brandAccentBorder),
                 borderRadius: BorderRadius.circular(AppSize.s12.r),
               ),
               child: Row(
                 children: [
                   Icon(
                     Icons.workspace_premium,
-                    color: ColorManager.brand.accent,
+                    color: ColorManager.brandAccent,
                     size: 18.w,
                   ),
                   Gap(6.w),
                   Text(
                     "$premiumLeft ${Strings.premiumMealsText.tr()} ${Strings.left.tr()}",
                     style: getBoldTextStyle(
-                      color: ColorManager.brand.accent,
+                      color: ColorManager.brandAccent,
                       fontSize: FontSizeManager.s12.sp,
                     ),
                   ),
@@ -138,15 +138,15 @@ class _PendingPaymentBanner extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(AppPadding.p12.w),
       decoration: BoxDecoration(
-        color: ColorManager.state.warningSurface,
-        border: Border.all(color: ColorManager.state.warningBorder),
+        color: ColorManager.stateWarningSurface,
+        border: Border.all(color: ColorManager.stateWarningBorder),
         borderRadius: BorderRadius.circular(AppSize.s12.r),
       ),
       child: Row(
         children: [
           Icon(
             Icons.info_outline,
-            color: ColorManager.state.warning,
+            color: ColorManager.stateWarning,
             size: 20.w,
           ),
           Gap(AppSize.s12.w),
@@ -157,7 +157,7 @@ class _PendingPaymentBanner extends StatelessWidget {
                 Text(
                   Strings.paymentRequired.tr(),
                   style: getBoldTextStyle(
-                    color: ColorManager.state.warningEmphasis,
+                    color: ColorManager.stateWarningEmphasis,
                     fontSize: FontSizeManager.s14.sp,
                   ),
                 ),
@@ -165,14 +165,14 @@ class _PendingPaymentBanner extends StatelessWidget {
                 Text(
                   "${Strings.youSelected.tr()} $premiumPending ${Strings.extraPremiumMeals.tr()}",
                   style: getRegularTextStyle(
-                    color: ColorManager.state.warningEmphasis,
+                    color: ColorManager.stateWarningEmphasis,
                     fontSize: FontSizeManager.s12.sp,
                   ),
                 ),
                 Text(
                   "${Strings.totalAmount.tr()}: ${paymentAmount.toStringAsFixed(2)} ${Strings.sar.tr()}",
                   style: getBoldTextStyle(
-                    color: ColorManager.state.warningEmphasis,
+                    color: ColorManager.stateWarningEmphasis,
                     fontSize: FontSizeManager.s10.sp,
                   ),
                 ),

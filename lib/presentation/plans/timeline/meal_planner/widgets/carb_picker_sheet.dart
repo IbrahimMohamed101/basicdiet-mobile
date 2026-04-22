@@ -33,7 +33,7 @@ class CarbPickerSheet extends StatelessWidget {
       builder: (context, scrollController) {
         return Container(
           decoration: BoxDecoration(
-            color: ColorManager.background.surface,
+            color: ColorManager.backgroundSurface,
             borderRadius: BorderRadius.vertical(
               top: Radius.circular(AppSize.s24.r),
             ),
@@ -100,14 +100,14 @@ class _CarbItem extends StatelessWidget {
         decoration: BoxDecoration(
           color:
               isSelected
-                  ? ColorManager.brand.primaryTint
-                  : ColorManager.background.surface,
+                  ? ColorManager.brandPrimaryTint
+                  : ColorManager.backgroundSurface,
           borderRadius: BorderRadius.circular(AppSize.s16.r),
           border: Border.all(
             color:
                 isSelected
-                    ? ColorManager.brand.primary
-                    : ColorManager.border.defaultColor,
+                    ? ColorManager.brandPrimary
+                    : ColorManager.borderDefault,
           ),
         ),
         child: Row(
@@ -116,7 +116,7 @@ class _CarbItem extends StatelessWidget {
               child: Text(
                 carb.name,
                 style: getBoldTextStyle(
-                  color: ColorManager.text.primary,
+                  color: ColorManager.textPrimary,
                   fontSize: FontSizeManager.s14.sp,
                 ),
               ),
@@ -126,8 +126,8 @@ class _CarbItem extends StatelessWidget {
               isSelected ? Icons.check_circle : Icons.radio_button_unchecked,
               color:
                   isSelected
-                      ? ColorManager.brand.primary
-                      : ColorManager.state.disabled,
+                      ? ColorManager.brandPrimary
+                      : ColorManager.stateDisabled,
               size: 22.w,
             ),
           ],
@@ -144,7 +144,7 @@ class _SheetHandle extends StatelessWidget {
       width: 48.w,
       height: 5.h,
       decoration: BoxDecoration(
-        color: ColorManager.background.subtle,
+        color: ColorManager.backgroundSubtle,
         borderRadius: BorderRadius.circular(99.r),
       ),
     );
@@ -166,7 +166,7 @@ class _SheetHeader extends StatelessWidget {
             child: Text(
               title,
               style: getBoldTextStyle(
-                color: ColorManager.text.primary,
+                color: ColorManager.textPrimary,
                 fontSize: FontSizeManager.s18.sp,
               ),
             ),
@@ -175,7 +175,7 @@ class _SheetHeader extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
             icon: Icon(
               Icons.close,
-              color: ColorManager.icon.secondary,
+              color: ColorManager.iconSecondary,
               size: 20.w,
             ),
           ),

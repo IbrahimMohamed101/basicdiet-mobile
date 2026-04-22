@@ -120,7 +120,7 @@ class _DayCard extends StatelessWidget {
                   child: Text(
                     style.statusText,
                     style: getRegularTextStyle(
-                      color: ColorManager.text.inverse,
+                      color: ColorManager.textInverse,
                       fontSize: FontSizeManager.s10.sp,
                     ),
                   ),
@@ -135,16 +135,16 @@ class _DayCard extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: ColorManager.brand.primary,
+                  color: ColorManager.brandPrimary,
                   border: Border.all(
-                    color: ColorManager.background.surface,
+                    color: ColorManager.backgroundSurface,
                     width: 2.w,
                   ),
                 ),
                 padding: EdgeInsets.all(4.w),
                 child: Icon(
                   Icons.check,
-                  color: ColorManager.text.inverse,
+                  color: ColorManager.textInverse,
                   size: 14.w,
                 ),
               ),
@@ -162,40 +162,40 @@ class _DayCard extends StatelessWidget {
 
     switch (status.toLowerCase()) {
       case 'locked':
-        baseColor = ColorManager.grey9CA3AF;
-        baseBgColor = ColorManager.greyF3F4F6;
-        baseBorderColor = Colors.transparent;
+        baseColor = ColorManager.textMuted;
+        baseBgColor = ColorManager.backgroundSubtle;
+        baseBorderColor = ColorManager.transparent;
         statusText = Strings.locked.tr();
         break;
       case 'planned':
-        baseColor = ColorManager.brand.primary;
-        baseBgColor = ColorManager.brand.primaryTint;
-        baseBorderColor = ColorManager.brand.primary;
+        baseColor = ColorManager.brandPrimary;
+        baseBgColor = ColorManager.brandPrimaryTint;
+        baseBorderColor = ColorManager.brandPrimary;
         statusText = Strings.planned.tr();
         break;
       case 'frozen':
-        baseColor = ColorManager.brand.primaryPressed;
-        baseBgColor = ColorManager.brand.primaryTint;
-        baseBorderColor = ColorManager.brand.primaryHover;
+        baseColor = ColorManager.brandPrimaryPressed;
+        baseBgColor = ColorManager.brandPrimaryTint;
+        baseBorderColor = ColorManager.brandPrimaryHover;
         statusText = Strings.frozen.tr();
         break;
       case 'skipped':
-        baseColor = ColorManager.brand.accent;
-        baseBgColor = ColorManager.brand.accentSoft;
-        baseBorderColor = ColorManager.brand.accentBorder;
+        baseColor = ColorManager.brandAccent;
+        baseBgColor = ColorManager.brandAccentSoft;
+        baseBorderColor = ColorManager.brandAccentBorder;
         statusText = Strings.skipped.tr();
         break;
       case 'extension':
-        baseColor = ColorManager.brand.accentPressed;
-        baseBgColor = ColorManager.brand.accentSoft;
-        baseBorderColor = ColorManager.brand.accent;
+        baseColor = ColorManager.brandAccentPressed;
+        baseBgColor = ColorManager.brandAccentSoft;
+        baseBorderColor = ColorManager.brandAccent;
         statusText = Strings.extension.tr();
         break;
       case 'open':
       default:
-        baseColor = ColorManager.text.primary;
-        baseBgColor = ColorManager.background.surface;
-        baseBorderColor = ColorManager.border.defaultColor;
+        baseColor = ColorManager.textPrimary;
+        baseBgColor = ColorManager.backgroundSurface;
+        baseBorderColor = ColorManager.borderDefault;
         statusText = Strings.open.tr();
         break;
     }
@@ -205,19 +205,19 @@ class _DayCard extends StatelessWidget {
     Color borderColor = baseBorderColor;
 
     if (isComplete) {
-      bgColor = ColorManager.brand.primary;
+      bgColor = ColorManager.brandPrimary;
       borderColor = ColorManager.transparent;
-      textColor = ColorManager.text.inverse;
+      textColor = ColorManager.textInverse;
       statusText = Strings.planned.tr();
     }
     if (isSelected) {
-      borderColor = ColorManager.brand.primary;
-      bgColor = ColorManager.brand.primary;
-      textColor = ColorManager.text.inverse;
+      borderColor = ColorManager.brandPrimary;
+      bgColor = ColorManager.brandPrimary;
+      textColor = ColorManager.textInverse;
     }
 
     final pillBgColor = isComplete || isSelected
-        ? ColorManager.text.inverse.withValues(alpha: 0.2)
+        ? ColorManager.textInverse.withValues(alpha: 0.2)
         : baseColor;
 
     return _DayStyle(

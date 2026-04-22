@@ -65,7 +65,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(Strings.subscriptionCanceledSuccessfully.tr()),
-                backgroundColor: ColorManager.state.success,
+                backgroundColor: ColorManager.stateSuccess,
               ),
             );
             Navigator.of(context).pop(true);
@@ -73,35 +73,35 @@ class ManageSubscriptionScreen extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(state.message),
-                backgroundColor: ColorManager.errorColor,
+                backgroundColor: ColorManager.stateError,
               ),
             );
           }
         },
         builder: (context, state) => Scaffold(
-          backgroundColor: ColorManager.background.app,
+          backgroundColor: ColorManager.backgroundApp,
           appBar: AppBar(
-            backgroundColor: ColorManager.background.surface,
+            backgroundColor: ColorManager.backgroundSurface,
             elevation: 0,
             centerTitle: true,
             leading: IconButton(
               icon: const Icon(
                 Icons.arrow_back,
-                color: ColorManager.black101828,
+                color: ColorManager.textPrimary,
               ),
               onPressed: () => Navigator.of(context).pop(),
             ),
             title: Text(
               Strings.manageSubscription.tr(),
               style: getRegularTextStyle(
-                color: ColorManager.text.primary,
+                color: ColorManager.textPrimary,
                 fontSize: FontSizeManager.s18.sp,
               ),
             ),
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(1.0),
               child: Container(
-                color: ColorManager.border.defaultColor,
+                color: ColorManager.borderDefault,
                 height: 1.0,
               ),
             ),
@@ -116,7 +116,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
                 Text(
                   Strings.subscriptionActions.tr(),
                   style: getRegularTextStyle(
-                    color: ColorManager.text.primary,
+                    color: ColorManager.textPrimary,
                     fontSize: FontSizeManager.s16.sp,
                   ),
                 ),
@@ -183,9 +183,9 @@ class ManageSubscriptionScreen extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: ColorManager.brand.primaryTint,
+        color: ColorManager.brandPrimaryTint,
         border: Border.all(
-          color: ColorManager.brand.primary.withValues(alpha: 0.2),
+          color: ColorManager.brandPrimary.withValues(alpha: 0.2),
         ),
         borderRadius: BorderRadius.circular(AppSize.s16),
       ),
@@ -195,8 +195,8 @@ class ManageSubscriptionScreen extends StatelessWidget {
         children: [
           Text(
             Strings.premiumMonthlyPlan.tr(),
-            style: getRegularTextStyle(
-              color: ColorManager.text.primary,
+            style: getBoldTextStyle(
+              color: ColorManager.textPrimary,
               fontSize: FontSizeManager.s18.sp,
             ),
           ),
@@ -204,7 +204,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
           Text(
             '${Strings.activeUntil.tr()} $date',
             style: getRegularTextStyle(
-              color: ColorManager.grey6A7282,
+              color: ColorManager.textSecondary,
               fontSize: FontSizeManager.s14.sp,
             ),
           ),
@@ -215,7 +215,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(AppPadding.p12),
                   decoration: BoxDecoration(
-                    color: ColorManager.background.surface,
+                    color: ColorManager.backgroundSurface,
                     borderRadius: BorderRadius.circular(AppSize.s8),
                   ),
                   child: Column(
@@ -224,7 +224,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
                       Text(
                         Strings.mealsPerDay.tr(),
                         style: getRegularTextStyle(
-                          color: ColorManager.grey6A7282,
+                          color: ColorManager.textSecondary,
                           fontSize: FontSizeManager.s14.sp,
                         ),
                       ),
@@ -232,7 +232,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
                       Text(
                         selectedMealsPerDay.toString(),
                         style: getRegularTextStyle(
-                          color: ColorManager.text.primary,
+                          color: ColorManager.textPrimary,
                           fontSize: FontSizeManager.s16.sp,
                         ),
                       ),
@@ -245,7 +245,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(AppPadding.p12),
                   decoration: BoxDecoration(
-                    color: ColorManager.background.surface,
+                    color: ColorManager.backgroundSurface,
                     borderRadius: BorderRadius.circular(AppSize.s8),
                   ),
                   child: Column(
@@ -254,7 +254,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
                       Text(
                         Strings.deliveryMode.tr(),
                         style: getRegularTextStyle(
-                          color: ColorManager.grey6A7282,
+                          color: ColorManager.textSecondary,
                           fontSize: FontSizeManager.s14.sp,
                         ),
                       ),
@@ -264,7 +264,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
                             ? deliveryModeLabel
                             : Strings.delivery.tr(),
                         style: getRegularTextStyle(
-                          color: ColorManager.text.primary,
+                          color: ColorManager.textPrimary,
                           fontSize: FontSizeManager.s16.sp,
                         ),
                       ),
@@ -291,8 +291,8 @@ class ManageSubscriptionScreen extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(AppPadding.p16),
         decoration: BoxDecoration(
-          color: ColorManager.background.surface,
-          border: Border.all(color: ColorManager.border.defaultColor),
+          color: ColorManager.backgroundSurface,
+          border: Border.all(color: ColorManager.borderDefault),
           borderRadius: BorderRadius.circular(AppSize.s12),
         ),
         child: Row(
@@ -300,7 +300,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(AppPadding.p12),
               decoration: BoxDecoration(
-                color: ColorManager.background.subtle,
+                color: ColorManager.brandPrimaryTint,
                 shape: BoxShape.circle,
               ),
               child: SvgPicture.asset(
@@ -317,7 +317,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
                   Text(
                     title,
                     style: getRegularTextStyle(
-                      color: ColorManager.text.primary,
+                      color: ColorManager.textPrimary,
                       fontSize: FontSizeManager.s16.sp,
                     ),
                   ),
@@ -325,7 +325,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
                   Text(
                     subtitle,
                     style: getRegularTextStyle(
-                      color: ColorManager.grey6A7282,
+                      color: ColorManager.textSecondary,
                       fontSize: FontSizeManager.s14.sp,
                     ),
                   ),
@@ -343,8 +343,8 @@ class ManageSubscriptionScreen extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: ColorManager.state.errorSurface,
-        border: Border.all(color: ColorManager.state.errorBorder),
+        color: ColorManager.stateErrorSurface,
+        border: Border.all(color: ColorManager.stateErrorBorder),
         borderRadius: BorderRadius.circular(AppSize.s16),
       ),
       padding: const EdgeInsets.all(AppPadding.p16),
@@ -354,7 +354,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
           Text(
             Strings.dangerZone.tr(),
             style: getRegularTextStyle(
-              color: ColorManager.state.errorEmphasis,
+              color: ColorManager.stateErrorEmphasis,
               fontSize: FontSizeManager.s16.sp,
             ),
           ),
@@ -362,7 +362,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
           Text(
             Strings.dangerZoneDesc.tr(),
             style: getRegularTextStyle(
-              color: ColorManager.errorColor,
+              color: ColorManager.stateError,
               fontSize: FontSizeManager.s14.sp,
             ),
           ),
@@ -377,7 +377,7 @@ class ManageSubscriptionScreen extends StatelessWidget {
                       height: AppSize.s20,
                       child: CircularProgressIndicator(
                         strokeWidth: 2,
-                        color: ColorManager.errorColor,
+                        color: ColorManager.stateError,
                       ),
                     )
                   : SvgPicture.asset(
@@ -385,20 +385,20 @@ class ManageSubscriptionScreen extends StatelessWidget {
                       width: AppSize.s20,
                       height: AppSize.s20,
                       colorFilter: const ColorFilter.mode(
-                        ColorManager.errorColor,
+                        ColorManager.stateError,
                         BlendMode.srcIn,
                       ),
                     ),
               label: Text(
                 Strings.cancelSubscription.tr(),
                 style: getRegularTextStyle(
-                  color: ColorManager.errorColor,
+                  color: ColorManager.stateError,
                   fontSize: FontSizeManager.s16.sp,
                 ),
               ),
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: AppPadding.p16),
-                side: const BorderSide(color: ColorManager.errorColor),
+                side: const BorderSide(color: ColorManager.stateError),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(AppSize.s12),
                 ),

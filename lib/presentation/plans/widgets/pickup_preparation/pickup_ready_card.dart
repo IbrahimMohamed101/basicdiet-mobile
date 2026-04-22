@@ -30,12 +30,12 @@ class PickupReadyCard extends StatelessWidget {
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [ColorManager.greenPressed, ColorManager.greenPrimary],
+          colors: [ColorManager.brandPrimaryPressed, ColorManager.brandPrimary],
         ),
         borderRadius: BorderRadius.circular(AppSize.s24.r),
         boxShadow: [
           BoxShadow(
-            color: ColorManager.greenPressed.withValues(alpha: 0.35),
+            color: ColorManager.brandPrimaryPressed.withValues(alpha: 0.35),
             blurRadius: 24,
             offset: const Offset(0, 10),
           ),
@@ -65,7 +65,7 @@ class PickupReadyCard extends StatelessWidget {
         Text(
           Strings.pickupCode.tr(),
           style: getRegularTextStyle(
-            color: Colors.white.withValues(alpha: 0.75),
+            color: ColorManager.backgroundSurface.withValues(alpha: 0.75),
             fontSize: FontSizeManager.s12.sp,
           ),
         ),
@@ -73,7 +73,7 @@ class PickupReadyCard extends StatelessWidget {
         Text(
           data.pickupCode ?? '',
           style: getBoldTextStyle(
-            color: Colors.white,
+            color: ColorManager.backgroundSurface,
             fontSize: AppSize.s48.sp,
           ),
         ),
@@ -90,7 +90,7 @@ class PickupReadyCard extends StatelessWidget {
               ? Strings.orderPickedUp.tr()
               : Strings.yourOrderIsReady.tr(),
           style: getBoldTextStyle(
-            color: Colors.white,
+            color: ColorManager.backgroundSurface,
             fontSize: FontSizeManager.s18.sp,
           ),
         ),
@@ -99,7 +99,7 @@ class PickupReadyCard extends StatelessWidget {
             Text(
               isCompleted ? Strings.successfully.tr() : Strings.isReady.tr(),
               style: getBoldTextStyle(
-                color: Colors.white,
+                color: ColorManager.backgroundSurface,
                 fontSize: FontSizeManager.s18.sp,
               ),
             ),
@@ -107,12 +107,12 @@ class PickupReadyCard extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(AppPadding.p2.w),
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: ColorManager.backgroundSurface,
                 shape: BoxShape.circle,
               ),
               child: Icon(
                 Icons.check_circle,
-                color: ColorManager.greenPressed,
+                color: ColorManager.brandPrimaryPressed,
                 size: AppSize.s20.sp,
               ),
             ),
@@ -126,20 +126,20 @@ class PickupReadyCard extends StatelessWidget {
     return Column(
       children: [
         Gap(AppSize.s16.h),
-        Divider(color: Colors.white.withValues(alpha: 0.25)),
+        Divider(color: ColorManager.backgroundSurface.withValues(alpha: 0.25)),
         Gap(AppSize.s8.h),
         Row(
           children: [
             Icon(
               Icons.schedule,
-              color: Colors.white.withValues(alpha: 0.75),
+              color: ColorManager.backgroundSurface.withValues(alpha: 0.75),
               size: AppSize.s16.sp,
             ),
             Gap(AppSize.s6.w),
             Text(
               data.statusLabel,
               style: getRegularTextStyle(
-                color: Colors.white.withValues(alpha: 0.85),
+                color: ColorManager.backgroundSurface.withValues(alpha: 0.85),
                 fontSize: FontSizeManager.s14.sp,
               ),
             ),

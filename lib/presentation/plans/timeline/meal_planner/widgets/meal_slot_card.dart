@@ -41,16 +41,16 @@ class MealSlotCard extends StatelessWidget {
     final borderColor =
         isComplete
             ? isProteinPremium
-                ? ColorManager.brand.accentBorder
-                : ColorManager.brand.primary.withValues(alpha: 0.35)
-            : ColorManager.border.defaultColor;
+                ? ColorManager.brandAccentBorder
+                : ColorManager.brandPrimary.withValues(alpha: 0.35)
+            : ColorManager.borderDefault;
 
     final bgColor =
         isComplete
             ? isProteinPremium
-                ? ColorManager.brand.accentSoft.withValues(alpha: 0.6)
-                : ColorManager.brand.primaryTint
-            : ColorManager.background.surface;
+                ? ColorManager.brandAccentSoft.withValues(alpha: 0.6)
+                : ColorManager.brandPrimaryTint
+            : ColorManager.backgroundSurface;
 
     return Stack(
       clipBehavior: Clip.none,
@@ -148,9 +148,9 @@ class _SlotHeader extends StatelessWidget {
             color:
                 isComplete
                     ? isProteinPremium
-                        ? ColorManager.brand.accent
-                        : ColorManager.brand.primary
-                    : ColorManager.background.subtle,
+                        ? ColorManager.brandAccent
+                        : ColorManager.brandPrimary
+                    : ColorManager.backgroundSubtle,
             borderRadius: BorderRadius.circular(AppSize.s14.r),
           ),
           child: Text(
@@ -158,8 +158,8 @@ class _SlotHeader extends StatelessWidget {
             style: getBoldTextStyle(
               color:
                   isComplete
-                      ? ColorManager.text.inverse
-                      : ColorManager.state.disabled,
+                      ? ColorManager.textInverse
+                      : ColorManager.stateDisabled,
               fontSize: FontSizeManager.s18.sp,
             ),
           ),
@@ -172,7 +172,7 @@ class _SlotHeader extends StatelessWidget {
               Text(
                 "${Strings.meal.tr()} $slotNumber",
                 style: getBoldTextStyle(
-                  color: ColorManager.text.primary,
+                  color: ColorManager.textPrimary,
                   fontSize: FontSizeManager.s16.sp,
                 ),
               ),
@@ -180,7 +180,7 @@ class _SlotHeader extends StatelessWidget {
               Text(
                 isComplete ? Strings.complete.tr() : Strings.buildYourMeal.tr(),
                 style: getRegularTextStyle(
-                  color: ColorManager.text.secondary,
+                  color: ColorManager.textSecondary,
                   fontSize: FontSizeManager.s12.sp,
                 ),
               ),
@@ -193,7 +193,7 @@ class _SlotHeader extends StatelessWidget {
             icon: Icon(
               Icons.close,
               size: 18.w,
-              color: ColorManager.icon.secondary,
+              color: ColorManager.iconSecondary,
             ),
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
@@ -209,11 +209,11 @@ class _PremiumBadge extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
       decoration: BoxDecoration(
-        color: ColorManager.brand.accent,
+        color: ColorManager.brandAccent,
         borderRadius: BorderRadius.circular(99.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.12),
+            color: ColorManager.textPrimary.withValues(alpha: 0.12),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -221,12 +221,12 @@ class _PremiumBadge extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(Icons.star, color: ColorManager.text.inverse, size: 14.w),
+          Icon(Icons.star, color: ColorManager.textInverse, size: 14.w),
           Gap(4.w),
           Text(
             Strings.premiumMealsText.tr(),
             style: getBoldTextStyle(
-              color: ColorManager.text.inverse,
+              color: ColorManager.textInverse,
               fontSize: FontSizeManager.s12.sp,
             ),
           ),

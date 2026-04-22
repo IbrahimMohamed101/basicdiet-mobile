@@ -79,7 +79,7 @@ class MealPlannerScreen extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(Strings.changesSavedSuccessfully.tr()),
-                        backgroundColor: ColorManager.state.success,
+                        backgroundColor: ColorManager.stateSuccess,
                         duration: const Duration(seconds: 2),
                       ),
                     );
@@ -95,7 +95,7 @@ class MealPlannerScreen extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(state.paymentError!),
-                        backgroundColor: ColorManager.state.error,
+                        backgroundColor: ColorManager.stateError,
                       ),
                     );
                   }
@@ -115,7 +115,7 @@ class MealPlannerScreen extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(Strings.paymentNotCompleted.tr()),
-          backgroundColor: ColorManager.state.error,
+          backgroundColor: ColorManager.stateError,
         ),
       );
       return;
@@ -173,7 +173,7 @@ class MealPlannerView extends StatelessWidget {
                     'planned');
 
         return Scaffold(
-          backgroundColor: ColorManager.background.surface,
+          backgroundColor: ColorManager.backgroundSurface,
           bottomNavigationBar:
               state is MealPlannerLoaded && !isViewOnly
                   ? MealPlannerBottomAction(state: state)
@@ -187,7 +187,7 @@ class MealPlannerView extends StatelessWidget {
   Widget _buildBody(BuildContext context, MealPlannerState state) {
     if (state is MealPlannerLoading) {
       return Center(
-        child: CircularProgressIndicator(color: ColorManager.brand.primary),
+        child: CircularProgressIndicator(color: ColorManager.brandPrimary),
       );
     }
     if (state is MealPlannerError) {

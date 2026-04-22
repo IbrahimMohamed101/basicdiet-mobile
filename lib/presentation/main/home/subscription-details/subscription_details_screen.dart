@@ -87,7 +87,7 @@ class SubscriptionDetails extends StatelessWidget {
         }
       },
       child: Scaffold(
-        backgroundColor: ColorManager.background.app,
+        backgroundColor: ColorManager.backgroundApp,
         appBar: _buildAppBar(context),
         bottomNavigationBar: BlocBuilder<SubscriptionBloc, SubscriptionState>(
           builder: (context, state) {
@@ -157,27 +157,27 @@ class SubscriptionDetails extends StatelessWidget {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorManager.background.surface,
+      backgroundColor: ColorManager.backgroundSurface,
       elevation: 0,
       centerTitle: false,
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
         icon: Icon(
           Icons.arrow_back_ios_new_rounded,
-          color: ColorManager.text.primary,
+          color: ColorManager.textPrimary,
           size: AppSize.s20.sp,
         ),
       ),
       title: Text(
         Strings.orderSummary.tr(),
         style: getBoldTextStyle(
-          color: ColorManager.text.primary,
+          color: ColorManager.textPrimary,
           fontSize: FontSizeManager.s18.sp,
         ),
       ),
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(1),
-        child: Container(height: 1, color: ColorManager.border.defaultColor),
+        child: Container(height: 1, color: ColorManager.borderDefault),
       ),
     );
   }
@@ -210,13 +210,13 @@ class _HeroBanner extends StatelessWidget {
           begin: AlignmentDirectional.topStart,
           end: AlignmentDirectional.bottomEnd,
           colors: [
-            ColorManager.state.successEmphasis,
-            ColorManager.brand.primary,
+            ColorManager.stateSuccessEmphasis,
+            ColorManager.brandPrimary,
           ],
         ),
         boxShadow: [
           BoxShadow(
-            color: ColorManager.state.successEmphasis.withValues(alpha: 0.18),
+            color: ColorManager.stateSuccessEmphasis.withValues(alpha: 0.18),
             blurRadius: AppSize.s24.r,
             offset: const Offset(0, 10),
           ),
@@ -242,11 +242,11 @@ class _HeroBanner extends StatelessWidget {
                 height: AppSize.s60.w,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: ColorManager.text.inverse.withValues(alpha: 0.18),
+                  color: ColorManager.textInverse.withValues(alpha: 0.18),
                 ),
                 child: Icon(
                   Icons.check_rounded,
-                  color: ColorManager.text.inverse,
+                  color: ColorManager.textInverse,
                   size: AppSize.s30.sp,
                 ),
               ),
@@ -255,7 +255,7 @@ class _HeroBanner extends StatelessWidget {
                 Strings.reviewYourOrder.tr(),
                 textAlign: TextAlign.center,
                 style: getBoldTextStyle(
-                  color: ColorManager.text.inverse,
+                  color: ColorManager.textInverse,
                   fontSize: FontSizeManager.s24.sp,
                 ),
               ),
@@ -264,7 +264,7 @@ class _HeroBanner extends StatelessWidget {
                 Strings.confirmSubscriptionDetailsBelow.tr(),
                 textAlign: TextAlign.center,
                 style: getRegularTextStyle(
-                  color: ColorManager.text.inverse.withValues(alpha: 0.82),
+                  color: ColorManager.textInverse.withValues(alpha: 0.82),
                   fontSize: FontSizeManager.s14.sp,
                 ),
               ),
@@ -289,7 +289,7 @@ class _BannerCircle extends StatelessWidget {
       height: size,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: ColorManager.text.inverse.withValues(alpha: opacity),
+        color: ColorManager.textInverse.withValues(alpha: opacity),
       ),
     );
   }
@@ -320,7 +320,7 @@ class _PlanSection extends StatelessWidget {
                   Text(
                     plan.name,
                     style: getBoldTextStyle(
-                      color: ColorManager.text.primary,
+                      color: ColorManager.textPrimary,
                       fontSize: FontSizeManager.s17.sp,
                     ),
                   ),
@@ -351,7 +351,7 @@ class _PlanSection extends StatelessWidget {
                   ),
                   textAlign: TextAlign.end,
                   style: getBoldTextStyle(
-                    color: ColorManager.brand.primary,
+                    color: ColorManager.brandPrimary,
                     fontSize: FontSizeManager.s22.sp,
                   ),
                 ),
@@ -359,7 +359,7 @@ class _PlanSection extends StatelessWidget {
                 Text(
                   Strings.basePrice.tr(),
                   style: getRegularTextStyle(
-                    color: ColorManager.text.secondary,
+                    color: ColorManager.textSecondary,
                     fontSize: FontSizeManager.s12.sp,
                   ),
                 ),
@@ -393,7 +393,7 @@ class _PremiumMealsSection extends StatelessWidget {
                   fallbackAmount: premiumLineItem.amountSar,
                 ),
                 style: getRegularTextStyle(
-                  color: ColorManager.text.secondary,
+                  color: ColorManager.textSecondary,
                   fontSize: FontSizeManager.s12.sp,
                 ),
               )
@@ -408,7 +408,7 @@ class _PremiumMealsSection extends StatelessWidget {
             Column(
               children: [
                 if (index > 0)
-                  Divider(height: 1, color: ColorManager.border.defaultColor),
+                  Divider(height: 1, color: ColorManager.borderDefault),
                 _PremiumMealTile(
                   item: quote.summary.premiumItems[index],
                   index: index,
@@ -431,9 +431,9 @@ class _PremiumMealTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final isEven = index.isEven;
     final iconColor =
-        isEven ? ColorManager.brand.primary : ColorManager.brand.accent;
+        isEven ? ColorManager.brandPrimary : ColorManager.brandAccent;
     final backgroundColor =
-        isEven ? ColorManager.brand.primaryTint : ColorManager.brand.accentSoft;
+        isEven ? ColorManager.brandPrimaryTint : ColorManager.brandAccentSoft;
 
     return Padding(
       padding: EdgeInsetsDirectional.all(AppPadding.p16.w),
@@ -460,7 +460,7 @@ class _PremiumMealTile extends StatelessWidget {
                 Text(
                   item.name,
                   style: getBoldTextStyle(
-                    color: ColorManager.text.primary,
+                    color: ColorManager.textPrimary,
                     fontSize: FontSizeManager.s14.sp,
                   ),
                 ),
@@ -471,13 +471,13 @@ class _PremiumMealTile extends StatelessWidget {
                     vertical: AppPadding.p4.h,
                   ),
                   decoration: BoxDecoration(
-                    color: ColorManager.brand.accentSoft,
+                    color: ColorManager.brandAccentSoft,
                     borderRadius: BorderRadius.circular(AppSize.s20.r),
                   ),
                   child: Text(
                     Strings.premiumTag.tr(),
                     style: getBoldTextStyle(
-                      color: ColorManager.brand.accent,
+                      color: ColorManager.brandAccent,
                       fontSize: FontSizeManager.s10.sp,
                     ),
                   ),
@@ -492,7 +492,7 @@ class _PremiumMealTile extends StatelessWidget {
               Text(
                 '×${_formatNumber(context, item.qty)} | ${_formatSar(context, item.unitPriceSar)}',
                 style: getRegularTextStyle(
-                  color: ColorManager.text.secondary,
+                  color: ColorManager.textSecondary,
                   fontSize: FontSizeManager.s10.sp,
                 ),
               ),
@@ -504,7 +504,7 @@ class _PremiumMealTile extends StatelessWidget {
                   fallbackAmount: item.totalSar,
                 ),
                 style: getBoldTextStyle(
-                  color: ColorManager.text.primary,
+                  color: ColorManager.textPrimary,
                   fontSize: FontSizeManager.s14.sp,
                 ),
               ),
@@ -537,7 +537,7 @@ class _AddOnsSection extends StatelessWidget {
                   fallbackAmount: addOnsLineItem.amountSar,
                 ),
                 style: getRegularTextStyle(
-                  color: ColorManager.text.secondary,
+                  color: ColorManager.textSecondary,
                   fontSize: FontSizeManager.s12.sp,
                 ),
               )
@@ -548,7 +548,7 @@ class _AddOnsSection extends StatelessWidget {
             Column(
               children: [
                 if (index > 0)
-                  Divider(height: 1, color: ColorManager.border.defaultColor),
+                  Divider(height: 1, color: ColorManager.borderDefault),
                 _AddOnTile(item: quote.summary.addons[index]),
               ],
             ),
@@ -576,7 +576,7 @@ class _AddOnTile extends StatelessWidget {
             margin: EdgeInsetsDirectional.only(top: AppSize.s8.h),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: ColorManager.brand.primary,
+              color: ColorManager.brandPrimary,
             ),
           ),
           Gap(AppSize.s12.w),
@@ -587,7 +587,7 @@ class _AddOnTile extends StatelessWidget {
                 Text(
                   item.name,
                   style: getBoldTextStyle(
-                    color: ColorManager.text.primary,
+                    color: ColorManager.textPrimary,
                     fontSize: FontSizeManager.s14.sp,
                   ),
                 ),
@@ -595,7 +595,7 @@ class _AddOnTile extends StatelessWidget {
                 Text(
                   item.formulaLabel,
                   style: getRegularTextStyle(
-                    color: ColorManager.text.secondary,
+                    color: ColorManager.textSecondary,
                     fontSize: FontSizeManager.s10.sp,
                   ),
                 ),
@@ -610,7 +610,7 @@ class _AddOnTile extends StatelessWidget {
               fallbackAmount: item.totalSar,
             ),
             style: getBoldTextStyle(
-              color: ColorManager.text.primary,
+              color: ColorManager.textPrimary,
               fontSize: FontSizeManager.s14.sp,
             ),
           ),
@@ -651,7 +651,7 @@ class _DeliveryDetailsSection extends StatelessWidget {
               children: [
                 const Divider(
                   height: 1,
-                  color: ColorManager.formFieldsBorderColor,
+                  color: ColorManager.borderDefault,
                 ),
                 _InfoTile(
                   icon: Icons.home_outlined,
@@ -660,7 +660,7 @@ class _DeliveryDetailsSection extends StatelessWidget {
                 ),
               ],
             ),
-          const Divider(height: 1, color: ColorManager.formFieldsBorderColor),
+          const Divider(height: 1, color: ColorManager.borderDefault),
           _InfoTile(
             icon: Icons.access_time_rounded,
             label: Strings.deliveryFee.tr(),
@@ -672,7 +672,7 @@ class _DeliveryDetailsSection extends StatelessWidget {
                 fallbackAmount: delivery.feeSar,
               ),
               style: getBoldTextStyle(
-                color: ColorManager.black101828,
+                color: ColorManager.textPrimary,
                 fontSize: FontSizeManager.s14.sp,
               ),
             ),
@@ -718,7 +718,7 @@ class _DeliveryScheduleSection extends StatelessWidget {
                     subtitle: Strings.firstDelivery.tr(),
                   ),
                 ),
-                Container(width: 1, color: ColorManager.formFieldsBorderColor),
+                Container(width: 1, color: ColorManager.borderDefault),
                 Expanded(
                   child: _ScheduleCell(
                     label: Strings.endDate.tr(),
@@ -729,7 +729,7 @@ class _DeliveryScheduleSection extends StatelessWidget {
               ],
             ),
           ),
-          const Divider(height: 1, color: ColorManager.formFieldsBorderColor),
+          const Divider(height: 1, color: ColorManager.borderDefault),
           Padding(
             padding: EdgeInsetsDirectional.all(AppPadding.p16.w),
             child: Row(
@@ -744,7 +744,7 @@ class _DeliveryScheduleSection extends StatelessWidget {
                       Text(
                         Strings.timeSlot.tr(),
                         style: getRegularTextStyle(
-                          color: ColorManager.grey6A7282,
+                          color: ColorManager.textSecondary,
                           fontSize: FontSizeManager.s10.sp,
                         ),
                       ),
@@ -752,7 +752,7 @@ class _DeliveryScheduleSection extends StatelessWidget {
                       Text(
                         slotTitle,
                         style: getBoldTextStyle(
-                          color: ColorManager.black101828,
+                          color: ColorManager.textPrimary,
                           fontSize: FontSizeManager.s14.sp,
                         ),
                       ),
@@ -766,13 +766,13 @@ class _DeliveryScheduleSection extends StatelessWidget {
                       vertical: AppPadding.p6.h,
                     ),
                     decoration: BoxDecoration(
-                      color: ColorManager.greenPrimary.withValues(alpha: 0.10),
+                      color: ColorManager.brandPrimary.withValues(alpha: 0.10),
                       borderRadius: BorderRadius.circular(AppSize.s20.r),
                     ),
                     child: Text(
                       slotWindow,
                       style: getBoldTextStyle(
-                        color: ColorManager.greenDark,
+                        color: ColorManager.stateSuccessEmphasis,
                         fontSize: FontSizeManager.s10.sp,
                       ),
                     ),
@@ -809,12 +809,12 @@ class _PriceBreakdownSection extends StatelessWidget {
                 if (index != otherItems.length - 1)
                   const Divider(
                     height: 1,
-                    color: ColorManager.formFieldsBorderColor,
+                    color: ColorManager.borderDefault,
                   ),
               ],
             ),
           if (totalItem != null) ...[
-            const Divider(height: 1, color: ColorManager.formFieldsBorderColor),
+            const Divider(height: 1, color: ColorManager.borderDefault),
             Container(
               width: double.infinity,
               padding: EdgeInsetsDirectional.symmetric(
@@ -822,7 +822,7 @@ class _PriceBreakdownSection extends StatelessWidget {
                 vertical: AppPadding.p16.h,
               ),
               decoration: BoxDecoration(
-                color: ColorManager.greenPrimary.withValues(alpha: 0.10),
+                color: ColorManager.brandPrimary.withValues(alpha: 0.10),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(AppSize.s20.r),
                   bottomRight: Radius.circular(AppSize.s20.r),
@@ -834,7 +834,7 @@ class _PriceBreakdownSection extends StatelessWidget {
                     child: Text(
                       totalItem.label,
                       style: getBoldTextStyle(
-                        color: ColorManager.greenDark,
+                        color: ColorManager.stateSuccessEmphasis,
                         fontSize: FontSizeManager.s16.sp,
                       ),
                     ),
@@ -846,7 +846,7 @@ class _PriceBreakdownSection extends StatelessWidget {
                       fallbackAmount: totalItem.amountSar,
                     ),
                     style: getBoldTextStyle(
-                      color: ColorManager.greenDark,
+                      color: ColorManager.stateSuccessEmphasis,
                       fontSize: FontSizeManager.s24.sp,
                     ),
                   ),
@@ -883,7 +883,7 @@ class _DeliveryNotesSection extends StatelessWidget {
                 Text(
                   Strings.deliveryNotes.tr(),
                   style: getBoldTextStyle(
-                    color: ColorManager.black101828,
+                    color: ColorManager.textPrimary,
                     fontSize: FontSizeManager.s15.sp,
                   ),
                 ),
@@ -891,7 +891,7 @@ class _DeliveryNotesSection extends StatelessWidget {
                 Text(
                   notes,
                   style: getRegularTextStyle(
-                    color: ColorManager.grey6A7282,
+                    color: ColorManager.textSecondary,
                     fontSize: FontSizeManager.s12.sp,
                   ),
                 ),
@@ -925,13 +925,13 @@ class _BottomActionBar extends StatelessWidget {
         AppPadding.p24.h,
       ),
       decoration: BoxDecoration(
-        color: ColorManager.whiteColor,
+        color: ColorManager.backgroundSurface,
         border: const Border(
-          top: BorderSide(color: ColorManager.formFieldsBorderColor),
+          top: BorderSide(color: ColorManager.borderDefault),
         ),
         boxShadow: [
           BoxShadow(
-            color: ColorManager.blackColor.withValues(alpha: 0.06),
+            color: ColorManager.textPrimary.withValues(alpha: 0.06),
             blurRadius: AppSize.s20.r,
             offset: const Offset(0, -4),
           ),
@@ -985,7 +985,7 @@ class _SummarySectionCard extends StatelessWidget {
                   child: Text(
                     title,
                     style: getBoldTextStyle(
-                      color: ColorManager.black101828,
+                      color: ColorManager.textPrimary,
                       fontSize: FontSizeManager.s15.sp,
                     ),
                   ),
@@ -994,7 +994,7 @@ class _SummarySectionCard extends StatelessWidget {
               ],
             ),
           ),
-          const Divider(height: 1, color: ColorManager.formFieldsBorderColor),
+          const Divider(height: 1, color: ColorManager.borderDefault),
           child,
         ],
       ),
@@ -1013,10 +1013,10 @@ class _MiniIconBadge extends StatelessWidget {
       width: AppSize.s30.w,
       height: AppSize.s30.w,
       decoration: BoxDecoration(
-        color: ColorManager.greenPrimary.withValues(alpha: 0.10),
+        color: ColorManager.brandPrimary.withValues(alpha: 0.10),
         borderRadius: BorderRadius.circular(AppSize.s10.r),
       ),
-      child: Icon(icon, color: ColorManager.greenDark, size: AppSize.s16.sp),
+      child: Icon(icon, color: ColorManager.stateSuccessEmphasis, size: AppSize.s16.sp),
     );
   }
 }
@@ -1034,13 +1034,13 @@ class _TagChip extends StatelessWidget {
         vertical: AppPadding.p6.h,
       ),
       decoration: BoxDecoration(
-        color: ColorManager.greenPrimary.withValues(alpha: 0.10),
+        color: ColorManager.brandPrimary.withValues(alpha: 0.10),
         borderRadius: BorderRadius.circular(AppSize.s20.r),
       ),
       child: Text(
         label,
         style: getBoldTextStyle(
-          color: ColorManager.greenDark,
+          color: ColorManager.stateSuccessEmphasis,
           fontSize: FontSizeManager.s10.sp,
         ),
       ),
@@ -1077,7 +1077,7 @@ class _InfoTile extends StatelessWidget {
                 Text(
                   label,
                   style: getRegularTextStyle(
-                    color: ColorManager.grey6A7282,
+                    color: ColorManager.textSecondary,
                     fontSize: FontSizeManager.s10.sp,
                   ),
                 ),
@@ -1085,7 +1085,7 @@ class _InfoTile extends StatelessWidget {
                 Text(
                   value,
                   style: getBoldTextStyle(
-                    color: ColorManager.black101828,
+                    color: ColorManager.textPrimary,
                     fontSize: FontSizeManager.s14.sp,
                   ),
                 ),
@@ -1121,7 +1121,7 @@ class _ScheduleCell extends StatelessWidget {
             children: [
               Icon(
                 Icons.schedule_rounded,
-                color: ColorManager.greenDark,
+                color: ColorManager.stateSuccessEmphasis,
                 size: AppSize.s12.sp,
               ),
               Gap(AppSize.s4.w),
@@ -1129,7 +1129,7 @@ class _ScheduleCell extends StatelessWidget {
                 child: Text(
                   label,
                   style: getRegularTextStyle(
-                    color: ColorManager.grey6A7282,
+                    color: ColorManager.textSecondary,
                     fontSize: FontSizeManager.s10.sp,
                   ),
                 ),
@@ -1140,7 +1140,7 @@ class _ScheduleCell extends StatelessWidget {
           Text(
             value,
             style: getBoldTextStyle(
-              color: ColorManager.black101828,
+              color: ColorManager.textPrimary,
               fontSize: FontSizeManager.s16.sp,
             ),
           ),
@@ -1148,7 +1148,7 @@ class _ScheduleCell extends StatelessWidget {
           Text(
             subtitle,
             style: getRegularTextStyle(
-              color: ColorManager.grey6A7282,
+              color: ColorManager.textSecondary,
               fontSize: FontSizeManager.s10.sp,
             ),
           ),
@@ -1180,11 +1180,11 @@ class _PriceRow extends StatelessWidget {
               style:
                   isVat
                       ? getRegularTextStyle(
-                        color: ColorManager.grey6A7282,
+                        color: ColorManager.textSecondary,
                         fontSize: FontSizeManager.s12.sp,
                       )
                       : getRegularTextStyle(
-                        color: ColorManager.grey4A5565,
+                        color: ColorManager.textSecondary,
                         fontSize: FontSizeManager.s14.sp,
                       ),
             ),
@@ -1198,11 +1198,11 @@ class _PriceRow extends StatelessWidget {
             style:
                 isVat
                     ? getRegularTextStyle(
-                      color: ColorManager.grey6A7282,
+                      color: ColorManager.textSecondary,
                       fontSize: FontSizeManager.s12.sp,
                     )
                     : getBoldTextStyle(
-                      color: ColorManager.black101828,
+                      color: ColorManager.textPrimary,
                       fontSize: FontSizeManager.s14.sp,
                     ),
           ),
@@ -1213,11 +1213,11 @@ class _PriceRow extends StatelessWidget {
 }
 
 BoxDecoration get _cardDecoration => BoxDecoration(
-  color: ColorManager.whiteColor,
+  color: ColorManager.backgroundSurface,
   borderRadius: BorderRadius.circular(AppSize.s20.r),
   boxShadow: [
     BoxShadow(
-      color: ColorManager.blackColor.withValues(alpha: 0.04),
+      color: ColorManager.textPrimary.withValues(alpha: 0.04),
       blurRadius: AppSize.s16.r,
       offset: const Offset(0, 4),
     ),

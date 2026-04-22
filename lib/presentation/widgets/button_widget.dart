@@ -18,10 +18,10 @@ class ButtonWidget extends StatelessWidget {
     required this.radius,
     this.width = double.infinity,
     this.height = AppSize.s50,
-    this.color = ColorManager.greenPrimary,
+    this.color = ColorManager.brandPrimary,
     required this.text,
     this.onTap,
-    this.textColor = ColorManager.whiteColor,
+    this.textColor = ColorManager.textInverse,
     this.disabledColor,
     this.disabledTextColor,
   });
@@ -31,18 +31,18 @@ class ButtonWidget extends StatelessWidget {
     final isEnabled = onTap != null;
     final backgroundColor = isEnabled
         ? color
-        : (disabledColor ?? ColorManager.state.disabledSurface);
+        : (disabledColor ?? ColorManager.stateDisabledSurface);
     final foregroundColor = isEnabled
         ? textColor
-        : (disabledTextColor ?? ColorManager.state.disabled);
+        : (disabledTextColor ?? ColorManager.stateDisabled);
 
     return Material(
-      color: Colors.transparent,
+      color: ColorManager.transparent,
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(radius.r),
-        splashColor: ColorManager.brand.primaryTint,
-        highlightColor: ColorManager.brand.primaryTint,
+        splashColor: ColorManager.brandPrimaryTint,
+        highlightColor: ColorManager.brandPrimaryTint,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 180),
           height: height.h,

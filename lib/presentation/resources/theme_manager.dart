@@ -7,45 +7,46 @@ import 'package:flutter/material.dart';
 ThemeData getApplicationTheme() {
   final colorScheme = ColorScheme(
     brightness: Brightness.light,
-    primary: ColorManager.brand.primary,
-    onPrimary: ColorManager.text.inverse,
-    secondary: ColorManager.brand.accent,
-    onSecondary: ColorManager.text.inverse,
-    error: ColorManager.state.error,
-    onError: ColorManager.text.inverse,
-    surface: ColorManager.background.surface,
-    onSurface: ColorManager.text.primary,
+    primary: ColorManager.brandPrimary,
+    onPrimary: ColorManager.textInverse,
+    secondary: ColorManager.brandAccent,
+    onSecondary: ColorManager.textInverse,
+    error: ColorManager.stateError,
+    onError: ColorManager.textInverse,
+    surface: ColorManager.backgroundSurface,
+    onSurface: ColorManager.textPrimary,
   );
 
   return ThemeData(
     useMaterial3: true,
     fontFamily: FontConstants.fontFamily,
-    primaryColor: ColorManager.brand.primary,
+    primaryColor: ColorManager.brandPrimary,
     colorScheme: colorScheme,
-    scaffoldBackgroundColor: ColorManager.background.app,
-    dividerColor: ColorManager.border.defaultColor,
+    scaffoldBackgroundColor: ColorManager.backgroundApp,
+    dividerColor: ColorManager.borderDefault,
     appBarTheme: AppBarTheme(
-      backgroundColor: ColorManager.background.surface,
-      foregroundColor: ColorManager.text.primary,
+      backgroundColor: ColorManager.backgroundSurface,
+      foregroundColor: ColorManager.textPrimary,
       elevation: 0,
       scrolledUnderElevation: 0,
-      surfaceTintColor: Colors.transparent,
+      surfaceTintColor: ColorManager.transparent,
     ),
 
     buttonTheme: ButtonThemeData(
       shape: const StadiumBorder(),
-      buttonColor: ColorManager.brand.primary,
-      disabledColor: ColorManager.state.disabledSurface,
-      splashColor: ColorManager.brand.primary,
+      buttonColor: ColorManager.brandPrimary,
+      disabledColor: ColorManager.stateDisabledSurface,
+      splashColor: ColorManager.brandPrimary,
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: ColorManager.brand.primary,
-        foregroundColor: ColorManager.text.inverse,
-        disabledBackgroundColor: ColorManager.state.disabledSurface,
-        disabledForegroundColor: ColorManager.state.disabled,
+        backgroundColor: ColorManager.brandPrimary,
+        foregroundColor: ColorManager.textInverse,
+        disabledBackgroundColor: ColorManager.stateDisabledSurface,
+        disabledForegroundColor: ColorManager.stateDisabled,
         elevation: 0,
+        shadowColor: ColorManager.brandPrimaryGlow,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.s16),
         ),
@@ -54,9 +55,9 @@ ThemeData getApplicationTheme() {
 
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        foregroundColor: ColorManager.text.primary,
-        side: BorderSide(color: ColorManager.border.defaultColor),
-        backgroundColor: ColorManager.background.surface,
+        foregroundColor: ColorManager.brandPrimary,
+        side: BorderSide(color: ColorManager.brandPrimary),
+        backgroundColor: ColorManager.brandPrimaryTint,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.s14),
         ),
@@ -64,21 +65,21 @@ ThemeData getApplicationTheme() {
     ),
 
     textButtonTheme: TextButtonThemeData(
-      style: TextButton.styleFrom(foregroundColor: ColorManager.brand.primary),
+      style: TextButton.styleFrom(foregroundColor: ColorManager.brandPrimary),
     ),
 
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: ColorManager.background.surface,
-      errorStyle: getRegularTextStyle(color: ColorManager.state.error),
+      fillColor: ColorManager.backgroundSurface,
+      errorStyle: getRegularTextStyle(color: ColorManager.stateError),
       hintStyle: getRegularTextStyle(
-        color: ColorManager.text.secondary,
+        color: ColorManager.textSecondary,
         fontSize: AppSize.s16,
       ),
 
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: ColorManager.border.defaultColor,
+          color: ColorManager.borderDefault,
           width: AppSize.s1_5,
         ),
         borderRadius: BorderRadius.circular(AppSize.s8),
@@ -86,7 +87,7 @@ ThemeData getApplicationTheme() {
 
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: ColorManager.brand.primary,
+          color: ColorManager.brandPrimary,
           width: AppSize.s1_5,
         ),
         borderRadius: BorderRadius.circular(AppSize.s8),
@@ -94,7 +95,7 @@ ThemeData getApplicationTheme() {
 
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: ColorManager.state.error,
+          color: ColorManager.stateError,
           width: AppSize.s1_5,
         ),
         borderRadius: BorderRadius.circular(AppSize.s8),
@@ -102,7 +103,7 @@ ThemeData getApplicationTheme() {
 
       focusedErrorBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: ColorManager.state.error,
+          color: ColorManager.stateError,
           width: AppSize.s1_5,
         ),
         borderRadius: BorderRadius.circular(AppSize.s8),

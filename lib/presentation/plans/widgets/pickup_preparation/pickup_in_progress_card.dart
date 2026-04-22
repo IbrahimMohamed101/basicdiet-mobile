@@ -18,12 +18,12 @@ class PickupInProgressCard extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(AppPadding.p24.w),
       decoration: BoxDecoration(
-        color: ColorManager.background.surface,
+        color: ColorManager.backgroundSurface,
         borderRadius: BorderRadius.circular(AppSize.s24.r),
-        border: Border.all(color: ColorManager.border.defaultColor),
+        border: Border.all(color: ColorManager.borderDefault),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.03),
+            color: ColorManager.textPrimary.withValues(alpha: 0.03),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -43,7 +43,7 @@ class PickupInProgressCard extends StatelessWidget {
                     Text(
                       Strings.kitchenPreparingMeals.tr(),
                       style: getBoldTextStyle(
-                        color: ColorManager.black101828,
+                        color: ColorManager.textPrimary,
                         fontSize: FontSizeManager.s20.sp,
                       ),
                     ),
@@ -51,7 +51,7 @@ class PickupInProgressCard extends StatelessWidget {
                     Text(
                       Strings.chefHandPickingIngredients.tr(),
                       style: getRegularTextStyle(
-                        color: ColorManager.grey6A7282,
+                        color: ColorManager.textSecondary,
                         fontSize: FontSizeManager.s16.sp,
                       ),
                     ),
@@ -61,12 +61,12 @@ class PickupInProgressCard extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(AppPadding.p12.w),
                 decoration: const BoxDecoration(
-                  color: ColorManager.orangeFFF5EC,
+                  color: ColorManager.brandAccentSoft,
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
                   Icons.soup_kitchen_outlined,
-                  color: ColorManager.orangePrimary,
+                  color: ColorManager.brandAccent,
                   size: AppSize.s28.sp,
                 ),
               ),
@@ -77,9 +77,9 @@ class PickupInProgressCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(AppSize.s100.r),
             child: LinearProgressIndicator(
               minHeight: AppSize.s8.h,
-              backgroundColor: ColorManager.background.subtle,
+              backgroundColor: ColorManager.backgroundSubtle,
               valueColor: AlwaysStoppedAnimation<Color>(
-                ColorManager.brand.primary,
+                ColorManager.brandPrimary,
               ),
             ),
           ),
@@ -89,7 +89,7 @@ class PickupInProgressCard extends StatelessWidget {
             height: AppSize.s55.h,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [ColorManager.greenPressed, ColorManager.greenHover],
+                colors: [ColorManager.brandPrimaryPressed, ColorManager.brandPrimaryHover],
               ),
               borderRadius: BorderRadius.circular(AppSize.s100.r),
             ),
@@ -100,7 +100,7 @@ class PickupInProgressCard extends StatelessWidget {
                   width: AppSize.s20.w,
                   height: AppSize.s20.w,
                   child: const CircularProgressIndicator(
-                    color: Colors.white,
+                    color: ColorManager.backgroundSurface,
                     strokeWidth: 2,
                   ),
                 ),
@@ -108,7 +108,7 @@ class PickupInProgressCard extends StatelessWidget {
                 Text(
                   Strings.preparing.tr(),
                   style: getBoldTextStyle(
-                    color: Colors.white,
+                    color: ColorManager.backgroundSurface,
                     fontSize: FontSizeManager.s18.sp,
                   ),
                 ),

@@ -42,7 +42,7 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
     super.initState();
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setBackgroundColor(ColorManager.background.surface)
+      ..setBackgroundColor(ColorManager.backgroundSurface)
       ..setNavigationDelegate(
         NavigationDelegate(
           onProgress: (progress) {
@@ -126,22 +126,22 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
         _closeWithCancelled();
       },
       child: Scaffold(
-        backgroundColor: ColorManager.background.surface,
+        backgroundColor: ColorManager.backgroundSurface,
         appBar: AppBar(
-          backgroundColor: ColorManager.background.surface,
+          backgroundColor: ColorManager.backgroundSurface,
           elevation: 0,
           leading: IconButton(
             onPressed: _closeWithCancelled,
             icon: Icon(
               Icons.close_rounded,
-              color: ColorManager.icon.primary,
+              color: ColorManager.iconPrimary,
               size: 22.sp,
             ),
           ),
           title: Text(
             Strings.securePayment.tr(),
             style: getBoldTextStyle(
-              color: ColorManager.text.primary,
+              color: ColorManager.textPrimary,
               fontSize: FontSizeManager.s18.sp,
             ),
           ),
@@ -150,8 +150,8 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
             child: _progress < 100
                 ? LinearProgressIndicator(
                     value: _progress / 100,
-                    backgroundColor: ColorManager.background.subtle,
-                    color: ColorManager.brand.primary,
+                    backgroundColor: ColorManager.backgroundSubtle,
+                    color: ColorManager.brandPrimary,
                     minHeight: 3.h,
                   )
                 : SizedBox(height: 3.h),

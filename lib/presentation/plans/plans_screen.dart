@@ -29,7 +29,7 @@ class PlansScreen extends StatelessWidget {
       child: BlocListener<PlansBloc, PlansState>(
         listener: _onStateChanged,
         child: Scaffold(
-          backgroundColor: ColorManager.background.app,
+          backgroundColor: ColorManager.backgroundApp,
           body: SafeArea(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(AppPadding.p16),
@@ -76,7 +76,7 @@ class PlansScreen extends StatelessWidget {
   Widget _buildBody(BuildContext context, PlansState state) {
     if (state is PlansLoading || state is PlansInitial) {
       return Center(
-        child: CircularProgressIndicator(color: ColorManager.brand.primary),
+        child: CircularProgressIndicator(color: ColorManager.brandPrimary),
       );
     }
 
@@ -105,10 +105,10 @@ class PlansScreen extends StatelessWidget {
         if (state is OpenPlannerLoading || state is PreparePickupLoading)
           Positioned.fill(
             child: Container(
-              color: ColorManager.background.surface.withValues(alpha: 0.5),
+              color: ColorManager.backgroundSurface.withValues(alpha: 0.5),
               child: Center(
                 child: CircularProgressIndicator(
-                  color: ColorManager.brand.primary,
+                  color: ColorManager.brandPrimary,
                 ),
               ),
             ),

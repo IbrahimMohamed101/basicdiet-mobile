@@ -20,27 +20,27 @@ class ConfirmationDialog extends StatelessWidget {
     required this.confirmLabel,
     required this.cancelLabel,
     required this.onConfirm,
-    this.confirmColor = ColorManager.errorColor,
+    this.confirmColor = ColorManager.stateError,
   });
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: ColorManager.background.surface,
+      backgroundColor: ColorManager.backgroundSurface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppSize.s16),
       ),
       title: Text(
         title,
         style: getRegularTextStyle(
-          color: ColorManager.text.primary,
+          color: ColorManager.textPrimary,
           fontSize: FontSizeManager.s18.sp,
         ),
       ),
       content: Text(
         body,
         style: getRegularTextStyle(
-          color: ColorManager.text.secondary,
+          color: ColorManager.textSecondary,
           fontSize: FontSizeManager.s14.sp,
         ),
       ),
@@ -58,7 +58,7 @@ class ConfirmationDialog extends StatelessWidget {
                 onPressed: () => Navigator.of(context).pop(false),
                 style: OutlinedButton.styleFrom(
                   padding: EdgeInsets.symmetric(vertical: AppPadding.p12.h),
-                  side: BorderSide(color: ColorManager.border.defaultColor),
+                  side: BorderSide(color: ColorManager.borderDefault),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(AppSize.s8),
                   ),
@@ -66,7 +66,7 @@ class ConfirmationDialog extends StatelessWidget {
                 child: Text(
                   cancelLabel,
                   style: getRegularTextStyle(
-                    color: ColorManager.text.primary,
+                    color: ColorManager.textPrimary,
                     fontSize: FontSizeManager.s14.sp,
                   ),
                 ),
@@ -89,7 +89,7 @@ class ConfirmationDialog extends StatelessWidget {
                 child: Text(
                   confirmLabel,
                   style: getRegularTextStyle(
-                    color: ColorManager.text.inverse,
+                    color: ColorManager.textInverse,
                     fontSize: FontSizeManager.s14.sp,
                   ),
                 ),

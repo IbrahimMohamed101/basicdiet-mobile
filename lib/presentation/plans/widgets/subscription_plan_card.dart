@@ -22,13 +22,13 @@ class SubscriptionPlanCard extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: ColorManager.background.surface,
+        color: ColorManager.backgroundSurface,
         borderRadius: BorderRadius.circular(AppSize.s16),
-        border: Border.all(color: ColorManager.border.defaultColor),
+        border: Border.all(color: ColorManager.borderDefault),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
-            blurRadius: 10,
+            color: ColorManager.brandPrimaryGlow,
+            blurRadius: 16,
             offset: const Offset(0, 4),
           ),
         ],
@@ -43,7 +43,7 @@ class SubscriptionPlanCard extends StatelessWidget {
           Gap(AppSize.s24.h),
           _buildMealsProgress(progressValue),
           Gap(AppSize.s24.h),
-          Container(height: 1, color: ColorManager.border.defaultColor),
+          Container(height: 1, color: ColorManager.borderDefault),
           Gap(AppSize.s20.h),
           if (data.premiumSummary.isNotEmpty) _buildPremiumSection(),
           if (data.addonSubscriptions.isNotEmpty) _buildAddonsSection(),
@@ -60,7 +60,7 @@ class SubscriptionPlanCard extends StatelessWidget {
         Text(
           Strings.subscriptionPlanText.tr(),
           style: getBoldTextStyle(
-            color: ColorManager.text.primary,
+            color: ColorManager.textPrimary,
             fontSize: FontSizeManager.s18.sp,
           ),
         ),
@@ -83,7 +83,7 @@ class SubscriptionPlanCard extends StatelessWidget {
               ),
           child: Icon(
             Icons.settings_outlined,
-            color: ColorManager.icon.secondary,
+            color: ColorManager.brandPrimary,
             size: AppSize.s20,
           ),
         ),
@@ -98,13 +98,13 @@ class SubscriptionPlanCard extends StatelessWidget {
         vertical: AppPadding.p6,
       ),
       decoration: BoxDecoration(
-        color: ColorManager.state.successSurface,
+        color: ColorManager.stateSuccessSurface,
         borderRadius: BorderRadius.circular(AppSize.s20.r),
       ),
       child: Text(
         data.statusLabel.isNotEmpty ? data.statusLabel : Strings.active.tr(),
         style: getBoldTextStyle(
-          color: ColorManager.state.successEmphasis,
+          color: ColorManager.stateSuccessEmphasis,
           fontSize: FontSizeManager.s12.sp,
         ),
       ),
@@ -120,14 +120,14 @@ class SubscriptionPlanCard extends StatelessWidget {
             Text(
               Strings.regularMealsRemaining.tr(),
               style: getRegularTextStyle(
-                color: ColorManager.text.secondary,
+                color: ColorManager.textSecondary,
                 fontSize: FontSizeManager.s14.sp,
               ),
             ),
             Text(
               '${data.remainingMeals} / ${data.totalMeals}',
               style: getBoldTextStyle(
-                color: ColorManager.text.primary,
+                color: ColorManager.textPrimary,
                 fontSize: FontSizeManager.s16.sp,
               ),
             ),
@@ -138,9 +138,9 @@ class SubscriptionPlanCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppSize.s4),
           child: LinearProgressIndicator(
             value: progressValue,
-            backgroundColor: ColorManager.background.subtle,
+            backgroundColor: ColorManager.brandPrimaryTint,
             valueColor: AlwaysStoppedAnimation<Color>(
-              ColorManager.brand.primary,
+              ColorManager.brandPrimary,
             ),
             minHeight: AppSize.s8,
           ),
@@ -161,12 +161,12 @@ class SubscriptionPlanCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsetsDirectional.all(AppPadding.p8),
                   decoration: BoxDecoration(
-                    color: ColorManager.brand.accentSoft,
+                    color: ColorManager.brandAccentSoft,
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
                     Icons.workspace_premium_outlined,
-                    color: ColorManager.brand.accent,
+                    color: ColorManager.brandAccent,
                     size: AppSize.s18,
                   ),
                 ),
@@ -181,14 +181,14 @@ class SubscriptionPlanCard extends StatelessWidget {
                           Text(
                             Strings.premiumMealsText.tr(),
                             style: getRegularTextStyle(
-                              color: ColorManager.text.secondary,
+                              color: ColorManager.textSecondary,
                               fontSize: FontSizeManager.s14.sp,
                             ),
                           ),
                           Text(
                             '${premium.remainingQtyTotal} ${Strings.available.tr()}',
                             style: getBoldTextStyle(
-                              color: ColorManager.brand.accent,
+                              color: ColorManager.brandAccent,
                               fontSize: FontSizeManager.s14.sp,
                             ),
                           ),
@@ -198,7 +198,7 @@ class SubscriptionPlanCard extends StatelessWidget {
                       Text(
                         '${Strings.purchased.tr()} ${premium.purchasedQtyTotal} • ${Strings.consumed.tr()} ${premium.consumedQtyTotal}',
                         style: getRegularTextStyle(
-                          color: ColorManager.text.secondary,
+                          color: ColorManager.textSecondary,
                           fontSize: FontSizeManager.s12.sp,
                         ),
                       ),
@@ -220,7 +220,7 @@ class SubscriptionPlanCard extends StatelessWidget {
         Text(
           Strings.addOnsIncluded.tr(),
           style: getRegularTextStyle(
-            color: ColorManager.text.secondary,
+            color: ColorManager.textSecondary,
             fontSize: FontSizeManager.s12.sp,
           ),
         ),
@@ -236,14 +236,14 @@ class SubscriptionPlanCard extends StatelessWidget {
                     vertical: AppPadding.p8,
                   ),
                   decoration: BoxDecoration(
-                    color: ColorManager.brand.accentSoft,
-                    border: Border.all(color: ColorManager.brand.accentBorder),
+                    color: ColorManager.brandAccentSoft,
+                    border: Border.all(color: ColorManager.brandAccentBorder),
                     borderRadius: BorderRadius.circular(AppSize.s20),
                   ),
                   child: Text(
                     '${addon.name} • 1/${Strings.day.tr()}',
                     style: getRegularTextStyle(
-                      color: ColorManager.brand.accent,
+                      color: ColorManager.brandAccent,
                       fontSize: FontSizeManager.s12,
                     ),
                   ),
@@ -260,7 +260,7 @@ class SubscriptionPlanCard extends StatelessWidget {
       children: [
         Icon(
           Icons.location_on_outlined,
-          color: ColorManager.icon.secondary,
+          color: ColorManager.iconSecondary,
           size: AppSize.s18,
         ),
         const SizedBox(width: AppSize.s4),
@@ -269,21 +269,21 @@ class SubscriptionPlanCard extends StatelessWidget {
               ? data.deliveryModeLabel
               : Strings.pickup.tr(),
           style: getRegularTextStyle(
-            color: ColorManager.text.secondary,
+            color: ColorManager.textSecondary,
             fontSize: FontSizeManager.s14.sp,
           ),
         ),
         Gap(AppSize.s16.w),
         Icon(
           Icons.access_time_outlined,
-          color: ColorManager.icon.secondary,
+          color: ColorManager.iconSecondary,
           size: AppSize.s18,
         ),
         const SizedBox(width: AppSize.s4),
         Text(
           '${data.selectedMealsPerDay} ${Strings.mealsDay.tr()}',
           style: getRegularTextStyle(
-            color: ColorManager.text.secondary,
+            color: ColorManager.textSecondary,
             fontSize: FontSizeManager.s14,
           ),
         ),

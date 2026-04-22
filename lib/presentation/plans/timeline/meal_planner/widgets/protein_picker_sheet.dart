@@ -138,7 +138,7 @@ class _ProteinPickerSheetState extends State<ProteinPickerSheet> {
       builder: (context, scrollController) {
         return Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: ColorManager.backgroundSurface,
             borderRadius: BorderRadius.vertical(
               top: Radius.circular(AppSize.s24.r),
             ),
@@ -211,8 +211,8 @@ class _CategoryTabs extends StatelessWidget {
           final isBeefTab = tab.key == beefRuleKey && !isPremiumTab;
           final isTabDisabled = isBeefTab && isBeefDisabled;
           final activeCardColor = isPremiumTab
-              ? ColorManager.brand.accent
-              : ColorManager.brand.primary;
+              ? ColorManager.brandAccent
+              : ColorManager.brandPrimary;
 
           return GestureDetector(
             onTap: isTabDisabled ? null : () => onTabSelected(tab.key),
@@ -228,14 +228,14 @@ class _CategoryTabs extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: isSelected
                           ? activeCardColor
-                          : ColorManager.background.surface,
+                          : ColorManager.backgroundSurface,
                       borderRadius: BorderRadius.circular(AppSize.s16.r),
                       border: isSelected
                           ? null
                           : Border.all(
                               color: isPremiumTab
-                                  ? ColorManager.brand.accentBorder
-                                  : ColorManager.border.defaultColor,
+                                  ? ColorManager.brandAccentBorder
+                                  : ColorManager.borderDefault,
                             ),
                     ),
                     alignment: Alignment.center,
@@ -252,9 +252,9 @@ class _CategoryTabs extends StatelessWidget {
                     style: getBoldTextStyle(
                       color: isSelected
                           ? (isPremiumTab
-                                ? ColorManager.brand.accent
-                                : ColorManager.brand.primary)
-                          : ColorManager.text.secondary,
+                                ? ColorManager.brandAccent
+                                : ColorManager.brandPrimary)
+                          : ColorManager.textSecondary,
                       fontSize: FontSizeManager.s10.sp,
                     ),
                   ),
@@ -352,13 +352,13 @@ class _ProteinItem extends StatelessWidget {
           padding: EdgeInsets.all(AppPadding.p12.w),
           decoration: BoxDecoration(
             color: isSelected
-                ? ColorManager.brand.primaryTint
-                : ColorManager.background.surface,
+                ? ColorManager.brandPrimaryTint
+                : ColorManager.backgroundSurface,
             borderRadius: BorderRadius.circular(AppSize.s16.r),
             border: Border.all(
               color: isSelected
-                  ? ColorManager.brand.primary
-                  : ColorManager.border.defaultColor,
+                  ? ColorManager.brandPrimary
+                  : ColorManager.borderDefault,
             ),
           ),
           child: Row(
@@ -375,7 +375,7 @@ class _ProteinItem extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: getBoldTextStyle(
-                              color: ColorManager.text.primary,
+                              color: ColorManager.textPrimary,
                               fontSize: FontSizeManager.s14.sp,
                             ),
                           ),
@@ -393,7 +393,7 @@ class _ProteinItem extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: getRegularTextStyle(
-                          color: ColorManager.grey4A5565,
+                          color: ColorManager.textSecondary,
                           fontSize: FontSizeManager.s12.sp,
                         ),
                       ),
@@ -405,8 +405,8 @@ class _ProteinItem extends StatelessWidget {
               Icon(
                 isSelected ? Icons.check_circle : Icons.radio_button_unchecked,
                 color: isSelected
-                    ? ColorManager.brand.primary
-                    : ColorManager.state.disabled,
+                    ? ColorManager.brandPrimary
+                    : ColorManager.stateDisabled,
                 size: 22.w,
               ),
             ],
@@ -423,23 +423,23 @@ class _PremiumTag extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.h),
       decoration: BoxDecoration(
-        color: ColorManager.brand.accentSoft,
+        color: ColorManager.brandAccentSoft,
         borderRadius: BorderRadius.circular(99.r),
-        border: Border.all(color: ColorManager.brand.accentBorder),
+        border: Border.all(color: ColorManager.brandAccentBorder),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
             Icons.workspace_premium,
-            color: ColorManager.brand.accent,
+            color: ColorManager.brandAccent,
             size: 12.w,
           ),
           Gap(3.w),
           Text(
             Strings.premium.tr(),
             style: getBoldTextStyle(
-              color: ColorManager.brand.accent,
+              color: ColorManager.brandAccent,
               fontSize: FontSizeManager.s10.sp,
             ),
           ),
@@ -454,7 +454,7 @@ class _EmptySheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: ColorManager.background.surface,
+        color: ColorManager.backgroundSurface,
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(AppSize.s24.r),
         ),
@@ -464,7 +464,7 @@ class _EmptySheet extends StatelessWidget {
         child: Text(
           Strings.noContent.tr(),
           style: getRegularTextStyle(
-            color: ColorManager.text.secondary,
+            color: ColorManager.textSecondary,
             fontSize: FontSizeManager.s14.sp,
           ),
         ),
@@ -480,7 +480,7 @@ class _SheetHandle extends StatelessWidget {
       width: 48.w,
       height: 5.h,
       decoration: BoxDecoration(
-        color: ColorManager.background.subtle,
+        color: ColorManager.backgroundSubtle,
         borderRadius: BorderRadius.circular(99.r),
       ),
     );
@@ -502,14 +502,14 @@ class _SheetHeader extends StatelessWidget {
             child: Text(
               title,
               style: getBoldTextStyle(
-                color: ColorManager.black101828,
+                color: ColorManager.textPrimary,
                 fontSize: FontSizeManager.s18.sp,
               ),
             ),
           ),
           IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: Icon(Icons.close, color: ColorManager.grey6A7282, size: 20.w),
+            icon: Icon(Icons.close, color: ColorManager.iconSecondary, size: 20.w),
           ),
         ],
       ),

@@ -29,7 +29,7 @@ class TextButtonWidget extends StatelessWidget {
       child: Text(
         text,
         style: getRegularTextStyle(
-          color: onPressed != null ? color : ColorManager.state.disabled,
+          color: onPressed != null ? color : ColorManager.stateDisabled,
           fontSize: fontSize.sp,
         ),
       ),

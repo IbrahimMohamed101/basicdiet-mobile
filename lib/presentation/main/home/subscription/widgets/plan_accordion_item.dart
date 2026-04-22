@@ -38,18 +38,18 @@ class PlanAccordionItem extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
-          color: ColorManager.background.surface,
+          color: ColorManager.backgroundSurface,
           borderRadius: BorderRadius.circular(AppSize.s16.r),
           border: Border.all(
             color: isExpanded
-                ? ColorManager.brand.primary.withValues(alpha: 0.3)
-                : ColorManager.border.subtle,
+                ? ColorManager.brandPrimary.withValues(alpha: 0.55)
+                : ColorManager.borderSubtle,
           ),
           boxShadow: [
             BoxShadow(
               color: isExpanded
-                  ? Colors.black.withValues(alpha: 0.08)
-                  : Colors.black.withValues(alpha: 0.04),
+                  ? ColorManager.brandPrimaryGlow
+                  : ColorManager.textPrimary.withValues(alpha: 0.04),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),
@@ -95,7 +95,7 @@ class _PlanHeader extends StatelessWidget {
                   plan.name,
                   style: getBoldTextStyle(
                     fontSize: FontSizeManager.s16.sp,
-                    color: ColorManager.text.primary,
+                    color: ColorManager.textPrimary,
                   ),
                 ),
                 Gap(AppSize.s4.h),
@@ -103,7 +103,7 @@ class _PlanHeader extends StatelessWidget {
                   Strings.chooseDailyMealCount.tr(),
                   style: getRegularTextStyle(
                     fontSize: FontSizeManager.s12.sp,
-                    color: ColorManager.text.secondary,
+                    color: ColorManager.textSecondary,
                   ),
                 ),
               ],
@@ -111,7 +111,7 @@ class _PlanHeader extends StatelessWidget {
           ),
           Icon(
             isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-            color: ColorManager.brand.primary,
+            color: ColorManager.brandPrimary,
           ),
         ],
       ),
@@ -126,12 +126,12 @@ class _CalendarIconBadge extends StatelessWidget {
       width: AppSize.s40.w,
       height: AppSize.s40.h,
       decoration: BoxDecoration(
-        color: ColorManager.brand.primaryTint,
+        color: ColorManager.brandPrimaryTint,
         shape: BoxShape.circle,
       ),
       child: Icon(
         Icons.calendar_today_outlined,
-        color: ColorManager.brand.primary,
+        color: ColorManager.brandPrimary,
         size: AppSize.s20.w,
       ),
     );
@@ -178,7 +178,7 @@ class _PlanExpandedContent extends StatelessWidget {
                   Strings.perfectForTrying.tr(),
                   style: getRegularTextStyle(
                     fontSize: FontSizeManager.s14.sp,
-                    color: ColorManager.text.secondary,
+                    color: ColorManager.textSecondary,
                   ).copyWith(height: 1.5),
                 ),
               ),
@@ -212,7 +212,7 @@ class _GreenVerticalBar extends StatelessWidget {
       width: AppSize.s4.w,
       height: height,
       decoration: BoxDecoration(
-        color: ColorManager.brand.primary,
+        color: ColorManager.brandPrimary,
         borderRadius: BorderRadius.circular(AppSize.s4.r),
       ),
     );
@@ -248,7 +248,7 @@ class _GramSizeSection extends StatelessWidget {
             vertical: AppPadding.p8.h,
           ),
           decoration: BoxDecoration(
-            color: ColorManager.brand.primaryTint,
+            color: ColorManager.brandPrimaryTint,
             borderRadius: BorderRadius.circular(AppSize.s8.r),
           ),
           child: Row(
@@ -259,7 +259,7 @@ class _GramSizeSection extends StatelessWidget {
               Text(
                 '${gramOption.grams}g ${Strings.size.tr()}',
                 style: getBoldTextStyle(
-                  color: ColorManager.greenPrimary,
+                  color: ColorManager.brandPrimary,
                   fontSize: FontSizeManager.s16.sp,
                 ),
               ),
@@ -281,7 +281,7 @@ class _GramSizeSection extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(bottom: AppSize.s24.h),
             child: Divider(
-              color: ColorManager.formFieldsBorderColor.withValues(alpha: 0.5),
+              color: ColorManager.borderDefault.withValues(alpha: 0.5),
               thickness: 1,
             ),
           ),
@@ -296,12 +296,12 @@ class _RestaurantIconBadge extends StatelessWidget {
     return Container(
       padding: EdgeInsetsDirectional.all(AppSize.s4.w),
       decoration: BoxDecoration(
-        color: ColorManager.greenPrimary.withValues(alpha: 0.1),
+        color: ColorManager.brandPrimary.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(AppSize.s8.r),
       ),
       child: Icon(
         Icons.restaurant_menu,
-        color: ColorManager.greenPrimary,
+        color: ColorManager.brandPrimary,
         size: AppSize.s14.sp,
       ),
     );

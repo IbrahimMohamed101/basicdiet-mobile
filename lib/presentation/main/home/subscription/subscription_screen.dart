@@ -26,7 +26,7 @@ class SubscriptionScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => instance<SubscriptionBloc>()..add(const GetPlansEvent()),
       child: Scaffold(
-        backgroundColor: ColorManager.background.app,
+        backgroundColor: ColorManager.backgroundApp,
         appBar: _buildAppBar(context),
         body: SafeArea(
           child: Column(
@@ -42,7 +42,7 @@ class SubscriptionScreen extends StatelessWidget {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorManager.background.surface,
+      backgroundColor: ColorManager.backgroundSurface,
       elevation: 0,
       centerTitle: true,
       scrolledUnderElevation: 0,
@@ -52,14 +52,14 @@ class SubscriptionScreen extends StatelessWidget {
           context.locale.languageCode == 'en'
               ? Icons.keyboard_arrow_left
               : Icons.keyboard_arrow_right,
-          color: ColorManager.icon.primary,
+          color: ColorManager.iconPrimary,
           size: AppSize.s30.sp,
         ),
       ),
       title: Text(
         Strings.subscriptionPackages.tr(),
         style: getBoldTextStyle(
-          color: ColorManager.text.primary,
+          color: ColorManager.textPrimary,
           fontSize: FontSizeManager.s20.sp,
         ),
       ),
@@ -91,7 +91,7 @@ class _LoadingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Center(
-    child: CircularProgressIndicator(color: ColorManager.brand.primary),
+    child: CircularProgressIndicator(color: ColorManager.brandPrimary),
   );
 }
 
@@ -135,7 +135,7 @@ class _ProceedButton extends StatelessWidget {
 
         return Container(
           padding: EdgeInsetsDirectional.all(AppPadding.p20.w),
-          color: ColorManager.background.surface,
+          color: ColorManager.backgroundSurface,
           child: ElevatedButton(
             onPressed:
                 isEnabled
@@ -149,12 +149,12 @@ class _ProceedButton extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor:
                   isEnabled
-                      ? ColorManager.brand.primary
-                      : ColorManager.state.disabledSurface,
+                      ? ColorManager.brandPrimary
+                      : ColorManager.stateDisabledSurface,
               foregroundColor:
                   isEnabled
-                      ? ColorManager.text.inverse
-                      : ColorManager.state.disabled,
+                      ? ColorManager.textInverse
+                      : ColorManager.stateDisabled,
               minimumSize: Size(double.infinity, AppSize.s55.h),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSize.s16.r),
@@ -167,8 +167,8 @@ class _ProceedButton extends StatelessWidget {
                 fontSize: FontSizeManager.s16.sp,
                 color:
                     isEnabled
-                        ? ColorManager.text.inverse
-                        : ColorManager.state.disabled,
+                        ? ColorManager.textInverse
+                        : ColorManager.stateDisabled,
               ),
             ),
           ),

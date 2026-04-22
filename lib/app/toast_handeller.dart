@@ -9,7 +9,7 @@ void showToast({required String? message, required ToastStates state}) {
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 1,
     backgroundColor: getColor(state),
-    textColor: ColorManager.text.inverse,
+    textColor: ColorManager.textInverse,
     fontSize: 16.0,
   );
 }
@@ -20,13 +20,13 @@ Color getColor(ToastStates toastStates) {
   Color color;
   switch (toastStates) {
     case ToastStates.success:
-      color = ColorManager.state.success;
+      color = ColorManager.stateSuccess;
       break;
     case ToastStates.error:
-      color = ColorManager.state.error;
+      color = ColorManager.stateError;
       break;
     case ToastStates.warning:
-      color = ColorManager.state.warning;
+      color = ColorManager.stateWarning;
       break;
   }
   return color;

@@ -67,7 +67,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(Strings.subscriptionFrozenSuccessfully.tr()),
-                backgroundColor: ColorManager.state.success,
+                backgroundColor: ColorManager.stateSuccess,
               ),
             );
             Navigator.of(context).pop();
@@ -75,34 +75,34 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(state.message),
-                backgroundColor: ColorManager.errorColor,
+                backgroundColor: ColorManager.stateError,
               ),
             );
           }
         },
         builder: (context, state) {
           return Scaffold(
-            backgroundColor: ColorManager.background.app,
+            backgroundColor: ColorManager.backgroundApp,
             appBar: AppBar(
-              backgroundColor: ColorManager.background.surface,
+              backgroundColor: ColorManager.backgroundSurface,
               elevation: 0,
               centerTitle: false,
               titleSpacing: 0,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back, color: ColorManager.text.primary),
+                icon: Icon(Icons.arrow_back, color: ColorManager.textPrimary),
                 onPressed: () => Navigator.of(context).pop(),
               ),
               title: Text(
                 Strings.freezeSubscription.tr(),
                 style: getRegularTextStyle(
-                  color: ColorManager.text.primary,
+                  color: ColorManager.textPrimary,
                   fontSize: FontSizeManager.s20.sp,
                 ),
               ),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(1.0),
                 child: Container(
-                  color: ColorManager.border.defaultColor,
+                  color: ColorManager.borderDefault,
                   height: 1.0,
                 ),
               ),
@@ -132,9 +132,9 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
     return Container(
       padding: const EdgeInsets.all(AppPadding.p16),
       decoration: BoxDecoration(
-        color: ColorManager.state.successSurface,
+        color: ColorManager.stateSuccessSurface,
         border: Border.all(
-          color: ColorManager.brand.primary.withValues(alpha: 0.25),
+          color: ColorManager.brandPrimary.withValues(alpha: 0.25),
         ),
         borderRadius: BorderRadius.circular(AppSize.s12),
       ),
@@ -143,7 +143,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
         children: [
           Icon(
             Icons.info_outline,
-            color: ColorManager.state.successEmphasis,
+            color: ColorManager.stateSuccessEmphasis,
             size: AppSize.s20,
           ),
           Gap(AppSize.s12.w),
@@ -154,7 +154,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
                 Text(
                   Strings.freezingYourSubscriptionWill.tr(),
                   style: getRegularTextStyle(
-                    color: ColorManager.state.successEmphasis,
+                    color: ColorManager.stateSuccessEmphasis,
                     fontSize: FontSizeManager.s14.sp,
                   ),
                 ),
@@ -178,7 +178,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
     return Text(
       text,
       style: getRegularTextStyle(
-        color: ColorManager.state.successEmphasis,
+        color: ColorManager.stateSuccessEmphasis,
         fontSize: FontSizeManager.s14.sp,
       ),
     );
@@ -188,8 +188,8 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
     return Container(
       padding: const EdgeInsets.all(AppPadding.p16),
       decoration: BoxDecoration(
-        color: ColorManager.background.surface,
-        border: Border.all(color: ColorManager.border.defaultColor),
+        color: ColorManager.backgroundSurface,
+        border: Border.all(color: ColorManager.borderDefault),
         borderRadius: BorderRadius.circular(AppSize.s12),
       ),
       child: Column(
@@ -198,7 +198,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
           Text(
             Strings.startDate.tr(),
             style: getRegularTextStyle(
-              color: ColorManager.text.primary,
+              color: ColorManager.textPrimary,
               fontSize: FontSizeManager.s16.sp,
             ),
           ),
@@ -223,7 +223,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
                 vertical: AppPadding.p12,
               ),
               decoration: BoxDecoration(
-                color: ColorManager.background.subtle,
+                color: ColorManager.backgroundSubtle,
                 borderRadius: BorderRadius.circular(AppSize.s8),
               ),
               child: Row(
@@ -235,13 +235,13 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
                       context.locale.toString(),
                     ).format(_startDate),
                     style: getRegularTextStyle(
-                      color: ColorManager.text.primary,
+                      color: ColorManager.textPrimary,
                       fontSize: FontSizeManager.s16.sp,
                     ),
                   ),
                   const Icon(
                     Icons.calendar_today_outlined,
-                    color: ColorManager.grey6A7282,
+                    color: ColorManager.textSecondary,
                     size: AppSize.s20,
                   ),
                 ],
@@ -252,7 +252,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
           Text(
             Strings.numberOfDays.tr(),
             style: getRegularTextStyle(
-              color: ColorManager.text.primary,
+              color: ColorManager.textPrimary,
               fontSize: FontSizeManager.s16.sp,
             ),
           ),
@@ -274,14 +274,14 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
                         vertical: AppPadding.p12,
                       ),
                       decoration: BoxDecoration(
-                        color: ColorManager.background.subtle,
+                        color: ColorManager.backgroundSubtle,
                         borderRadius: BorderRadius.circular(AppSize.s8),
                       ),
                       alignment: Alignment.center,
                       child: Text(
                         '$_days',
                         style: getRegularTextStyle(
-                          color: ColorManager.text.primary,
+                          color: ColorManager.textPrimary,
                           fontSize: FontSizeManager.s20.sp,
                         ),
                       ),
@@ -290,7 +290,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
                     Text(
                       Strings.days.tr().toLowerCase(),
                       style: getRegularTextStyle(
-                        color: ColorManager.text.secondary,
+                        color: ColorManager.textSecondary,
                         fontSize: FontSizeManager.s12.sp,
                       ),
                     ),
@@ -322,10 +322,10 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
         width: AppSize.s40.w,
         height: AppSize.s40.h,
         decoration: BoxDecoration(
-          color: ColorManager.background.subtle,
+          color: ColorManager.backgroundSubtle,
           borderRadius: BorderRadius.circular(AppSize.s8),
         ),
-        child: Icon(icon, color: ColorManager.icon.primary, size: AppSize.s20),
+        child: Icon(icon, color: ColorManager.iconPrimary, size: AppSize.s20),
       ),
     );
   }
@@ -334,8 +334,8 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
     return Container(
       padding: const EdgeInsets.all(AppPadding.p16),
       decoration: BoxDecoration(
-        color: ColorManager.background.surface,
-        border: Border.all(color: ColorManager.border.defaultColor),
+        color: ColorManager.backgroundSurface,
+        border: Border.all(color: ColorManager.borderDefault),
         borderRadius: BorderRadius.circular(AppSize.s12),
       ),
       child: Column(
@@ -344,7 +344,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
           Text(
             Strings.impactSummary.tr(),
             style: getRegularTextStyle(
-              color: ColorManager.text.primary,
+              color: ColorManager.textPrimary,
               fontSize: FontSizeManager.s16.sp,
             ),
           ),
@@ -355,14 +355,14 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
               Text(
                 Strings.freezePeriod.tr(),
                 style: getRegularTextStyle(
-                  color: ColorManager.grey6A7282,
+                  color: ColorManager.textSecondary,
                   fontSize: FontSizeManager.s14.sp,
                 ),
               ),
               Text(
                 '$_days ${Strings.days.tr().toLowerCase()}',
                 style: getRegularTextStyle(
-                  color: ColorManager.text.primary,
+                  color: ColorManager.textPrimary,
                   fontSize: FontSizeManager.s14.sp,
                 ),
               ),
@@ -375,7 +375,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
               Text(
                 Strings.currentEndDate.tr(),
                 style: getRegularTextStyle(
-                  color: ColorManager.text.secondary,
+                  color: ColorManager.textSecondary,
                   fontSize: FontSizeManager.s14.sp,
                 ),
               ),
@@ -385,14 +385,14 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
                   context.locale.toString(),
                 ).format(currentEndDate),
                 style: getRegularTextStyle(
-                  color: ColorManager.text.primary,
+                  color: ColorManager.textPrimary,
                   fontSize: FontSizeManager.s14.sp,
                 ),
               ),
             ],
           ),
           Gap(AppSize.s12.h),
-          Divider(color: ColorManager.border.defaultColor, height: 1),
+          Divider(color: ColorManager.borderDefault, height: 1),
           Gap(AppSize.s12.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -400,7 +400,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
               Text(
                 Strings.newEndDate.tr(),
                 style: getRegularTextStyle(
-                  color: ColorManager.text.primary,
+                  color: ColorManager.textPrimary,
                   fontSize: FontSizeManager.s14.sp,
                 ),
               ),
@@ -410,7 +410,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
                   context.locale.toString(),
                 ).format(newEndDate),
                 style: getRegularTextStyle(
-                  color: ColorManager.brand.primary,
+                  color: ColorManager.brandPrimary,
                   fontSize: FontSizeManager.s14.sp,
                 ),
               ),
@@ -434,7 +434,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
             onPressed: () => Navigator.of(context).pop(),
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: AppPadding.p16),
-              side: BorderSide(color: ColorManager.border.defaultColor),
+              side: BorderSide(color: ColorManager.borderDefault),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSize.s12),
               ),
@@ -442,7 +442,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
             child: Text(
               Strings.cancel.tr(),
               style: getRegularTextStyle(
-                color: ColorManager.text.primary,
+                color: ColorManager.textPrimary,
                 fontSize: FontSizeManager.s16.sp,
               ),
             ),
@@ -466,7 +466,7 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
                       );
                     },
             style: ElevatedButton.styleFrom(
-              backgroundColor: ColorManager.brand.primary,
+              backgroundColor: ColorManager.brandPrimary,
               padding: const EdgeInsets.symmetric(vertical: AppPadding.p16),
               elevation: 0,
               shape: RoundedRectangleBorder(
@@ -479,13 +479,13 @@ class _FreezeSubscriptionScreenState extends State<FreezeSubscriptionScreen> {
                       width: AppSize.s24,
                       height: AppSize.s24,
                       child: CircularProgressIndicator(
-                        color: ColorManager.text.inverse,
+                        color: ColorManager.textInverse,
                       ),
                     )
                     : Text(
                       Strings.freezeSubscription.tr(),
                       style: getRegularTextStyle(
-                        color: ColorManager.text.inverse,
+                        color: ColorManager.textInverse,
                         fontSize: FontSizeManager.s16.sp,
                       ),
                     ),

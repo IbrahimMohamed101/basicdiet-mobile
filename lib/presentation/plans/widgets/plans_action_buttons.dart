@@ -45,7 +45,7 @@ class PlansActionButtons extends StatelessWidget {
         }
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: ColorManager.brand.primary,
+        backgroundColor: ColorManager.brandPrimary,
         padding: const EdgeInsets.symmetric(vertical: AppPadding.p16),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.s12),
@@ -57,14 +57,14 @@ class PlansActionButtons extends StatelessWidget {
         children: [
           const Icon(
             Icons.calendar_today_outlined,
-            color: ColorManager.whiteColor,
+            color: ColorManager.backgroundSurface,
             size: AppSize.s18,
           ),
           Gap(AppSize.s8.w),
           Text(
             Strings.viewTimeline.tr(),
             style: getRegularTextStyle(
-              color: ColorManager.text.inverse,
+              color: ColorManager.textInverse,
               fontSize: FontSizeManager.s14.sp,
             ),
           ),
@@ -87,9 +87,9 @@ class PlansActionButtons extends StatelessWidget {
         padding: const EdgeInsetsDirectional.symmetric(
           vertical: AppPadding.p16,
         ),
-        foregroundColor: ColorManager.text.primary,
-        side: BorderSide(color: ColorManager.border.defaultColor),
-        backgroundColor: ColorManager.background.surface,
+        foregroundColor: ColorManager.brandPrimary,
+        side: BorderSide(color: ColorManager.brandPrimary),
+        backgroundColor: ColorManager.brandPrimaryTint,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.s12.r),
         ),
@@ -99,14 +99,14 @@ class PlansActionButtons extends StatelessWidget {
         children: [
           Icon(
             Icons.access_time,
-            color: ColorManager.icon.primary,
+            color: ColorManager.brandPrimary,
             size: AppSize.s18,
           ),
           Gap(AppSize.s8.w),
           Text(
             Strings.todaysMeals.tr(),
             style: getRegularTextStyle(
-              color: ColorManager.text.primary,
+              color: ColorManager.brandPrimary,
               fontSize: FontSizeManager.s14.sp,
             ),
           ),

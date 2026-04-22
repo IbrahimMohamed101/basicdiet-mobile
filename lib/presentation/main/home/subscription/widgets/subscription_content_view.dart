@@ -96,7 +96,7 @@ class _BenefitsRow extends StatelessWidget {
           child: Text(
             Strings.vatAndDelivery.tr(),
             style: getRegularTextStyle(
-              color: ColorManager.text.secondary,
+              color: ColorManager.textSecondary,
               fontSize: FontSizeManager.s14.sp,
             ),
           ),
@@ -127,14 +127,14 @@ class _BenefitItem extends StatelessWidget {
       children: [
         Icon(
           Icons.check,
-          color: ColorManager.state.success,
+          color: ColorManager.stateSuccess,
           size: AppSize.s16.sp,
         ),
         Gap(AppSize.s4.w),
         Text(
           text,
           style: getRegularTextStyle(
-            color: ColorManager.text.secondary,
+            color: ColorManager.textSecondary,
             fontSize: FontSizeManager.s10.sp,
           ),
         ),
