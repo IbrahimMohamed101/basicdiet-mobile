@@ -1,0 +1,126 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:basic_diet/domain/model/plans_model.dart';
+import 'package:basic_diet/presentation/resources/color_manager.dart';
+import 'package:basic_diet/presentation/resources/font_manager.dart';
+import 'package:basic_diet/presentation/resources/strings_manager.dart';
+import 'package:basic_diet/presentation/resources/styles_manager.dart';
+import 'package:basic_diet/presentation/resources/values_manager.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
+
+class MealOptionCard extends StatelessWidget {
+  const MealOptionCard({
+    super.key,
+    required this.option,
+    this.isSelected = false,
+    this.onTap,
+  });
+
+  final MealOptionModel option;
+  final bool isSelected;
+  final VoidCallback? onTap;
+
+  // Presentation logic as getters — unit-testable without rendering
+  String get _mealLabel {
+    final count = option.mealsPerDay;
+    return '$count ${count > 1 ? Strings.meals.tr() : Strings.meal.tr()}';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: EdgeInsetsDirectional.all(AppPadding.p12.w),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? ColorManager.brand.primaryTint
+              : ColorManager.background.surface,
+          borderRadius: BorderRadius.circular(AppSize.s16.r),
+          border: Border.all(
+            color: isSelected
+                ? ColorManager.brand.primary
+                : ColorManager.border.subtle,
+            width: isSelected ? 1.5 : 1.0,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              _mealLabel,
+              style: getRegularTextStyle(
+                fontSize: FontSizeManager.s12.sp,
+                color: ColorManager.text.secondary,
+              ),
+            ),
+            Gap(AppSize.s8.h),
+            _PriceRow(
+              amount: option.priceSar.toStringAsFixed(0),
+              isStrikethrough: false,
+              color: ColorManager.brand.primary,
+              amountFontSize: FontSizeManager.s22.sp,
+              labelFontSize: FontSizeManager.s12.sp,
+            ),
+            Gap(AppSize.s4.h),
+            _PriceRow(
+              amount: option.compareAtSar.toStringAsFixed(0),
+              isStrikethrough: true,
+              color: ColorManager.text.secondary.withValues(alpha: 0.6),
+              amountFontSize: FontSizeManager.s16.sp,
+              labelFontSize: FontSizeManager.s12.sp,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Reusable price row: amount + currency label, with optional strikethrough.
+class _PriceRow extends StatelessWidget {
+  const _PriceRow({
+    required this.amount,
+    required this.isStrikethrough,
+    required this.color,
+    required this.amountFontSize,
+    required this.labelFontSize,
+  });
+
+  final String amount;
+  final bool isStrikethrough;
+  final Color color;
+  final double amountFontSize;
+  final double labelFontSize;
+
+  TextStyle _style(double fontSize) {
+    final base = isStrikethrough
+        ? getRegularTextStyle(fontSize: fontSize, color: color)
+        : getBoldTextStyle(fontSize: fontSize, color: color);
+    return isStrikethrough
+        ? base.copyWith(decoration: TextDecoration.lineThrough)
+        : base;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.baseline,
+      textBaseline: TextBaseline.alphabetic,
+      children: [
+        Text(amount, style: _style(amountFontSize)),
+        Gap(AppSize.s4.w),
+        Text(Strings.sar.tr(), style: _style(labelFontSize)),
+      ],
+    );
+  }
+}

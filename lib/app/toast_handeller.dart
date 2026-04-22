@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:basic_diet/presentation/resources/color_manager.dart';
+
+void showToast({required String? message, required ToastStates state}) {
+  Fluttertoast.showToast(
+    msg: message!,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    backgroundColor: getColor(state),
+    textColor: ColorManager.text.inverse,
+    fontSize: 16.0,
+  );
+}
+
+enum ToastStates { success, error, warning }
+
+Color getColor(ToastStates toastStates) {
+  Color color;
+  switch (toastStates) {
+    case ToastStates.success:
+      color = ColorManager.state.success;
+      break;
+    case ToastStates.error:
+      color = ColorManager.state.error;
+      break;
+    case ToastStates.warning:
+      color = ColorManager.state.warning;
+      break;
+  }
+  return color;
+}
