@@ -34,6 +34,11 @@ class SubscriptionContentView extends StatelessWidget {
         final selectedMealOption = state.selectedMealOption;
         final expandedIndex = state.expandedPlanIndex;
 
+        assert(() {
+          debugPrint('Selected: ${selectedMealOption?.mealsPerDay}');
+          return true;
+        }());
+
         return ListView(
           padding: EdgeInsetsDirectional.symmetric(
             horizontal: AppPadding.p20.w,

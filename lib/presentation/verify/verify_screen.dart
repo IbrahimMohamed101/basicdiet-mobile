@@ -25,6 +25,8 @@ class VerifyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bottomInset = MediaQuery.viewInsetsOf(context).bottom;
+
     return BlocProvider(
       create: (_) => instance<VerifyBloc>(),
       child: BlocListener<VerifyBloc, VerifyState>(
@@ -38,9 +40,11 @@ class VerifyScreen extends StatelessWidget {
           body: SafeArea(
             child: Builder(
               builder: (innerContext) => SingleChildScrollView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
                 padding: EdgeInsetsDirectional.symmetric(
                   horizontal: AppPadding.p20.w,
-                ),
+                ).copyWith(bottom: AppPadding.p20.h + bottomInset),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

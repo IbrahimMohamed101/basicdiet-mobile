@@ -32,7 +32,7 @@ void main() {
     );
     final decoration = animatedContainer.decoration! as BoxDecoration;
 
-    expect(decoration.color, ColorManager.brand.primary);
+    expect(decoration.color, ColorManager.brandPrimary);
     expect(find.text('Continue'), findsOneWidget);
   });
 
@@ -53,6 +53,6 @@ void main() {
     );
     final decoration = animatedContainer.decoration! as BoxDecoration;
 
-    expect(decoration.color, ColorManager.state.disabledSurface);
+    expect(decoration.color, ColorManager.stateDisabledSurface);
   });
 }

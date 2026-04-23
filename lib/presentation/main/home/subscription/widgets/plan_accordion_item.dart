@@ -41,15 +41,17 @@ class PlanAccordionItem extends StatelessWidget {
           color: ColorManager.backgroundSurface,
           borderRadius: BorderRadius.circular(AppSize.s16.r),
           border: Border.all(
-            color: isExpanded
-                ? ColorManager.brandPrimary.withValues(alpha: 0.55)
-                : ColorManager.borderSubtle,
+            color:
+                isExpanded
+                    ? ColorManager.brandPrimary.withValues(alpha: 0.55)
+                    : ColorManager.borderSubtle,
           ),
           boxShadow: [
             BoxShadow(
-              color: isExpanded
-                  ? ColorManager.brandPrimaryGlow
-                  : ColorManager.textPrimary.withValues(alpha: 0.04),
+              color:
+                  isExpanded
+                      ? ColorManager.brandPrimaryGlow
+                      : ColorManager.textPrimary.withValues(alpha: 0.04),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),
@@ -331,9 +333,10 @@ class _OptionsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isOptionSelected(MealOptionModel option) {
+      final selectedMealsCount = selectedMealOption?.mealsPerDay;
       return selectedPlan?.id == plan.id &&
           selectedGramOption?.grams == gramOption.grams &&
-          selectedMealOption == option;
+          selectedMealsCount == option.mealsPerDay;
     }
 
     final rows = <Widget>[];
@@ -345,25 +348,30 @@ class _OptionsGrid extends StatelessWidget {
               child: MealOptionCard(
                 option: options[i],
                 isSelected: isOptionSelected(options[i]),
-                onTap: () =>
-                    onMealOptionTap?.call(plan, gramOption, options[i]),
+                onTap:
+                    () => onMealOptionTap?.call(plan, gramOption, options[i]),
               ),
             ),
-            if (i + 1 < options.length) ...[
-              Gap(AppSize.s12.w),
-              Expanded(
-                child: MealOptionCard(
-                  option: options[i + 1],
-                  isSelected: isOptionSelected(options[i + 1]),
-                  onTap: () =>
-                      onMealOptionTap?.call(plan, gramOption, options[i + 1]),
-                ),
-              ),
-            ],
+            Gap(AppSize.s14.w),
+            Expanded(
+              child:
+                  i + 1 < options.length
+                      ? MealOptionCard(
+                        option: options[i + 1],
+                        isSelected: isOptionSelected(options[i + 1]),
+                        onTap:
+                            () => onMealOptionTap?.call(
+                              plan,
+                              gramOption,
+                              options[i + 1],
+                            ),
+                      )
+                      : const SizedBox.shrink(),
+            ),
           ],
         ),
       );
-      if (i + 2 < options.length) rows.add(Gap(AppSize.s12.h));
+      if (i + 2 < options.length) rows.add(Gap(AppSize.s14.h));
     }
     return Column(children: rows);
   }

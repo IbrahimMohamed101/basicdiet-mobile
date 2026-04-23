@@ -31,6 +31,8 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bottomInset = MediaQuery.viewInsetsOf(context).bottom;
+
     return BlocProvider(
       create: (_) => instance<RegisterBloc>(),
       child: BlocListener<RegisterBloc, RegisterState>(
@@ -43,9 +45,10 @@ class RegisterScreen extends StatelessWidget {
           backgroundColor: ColorManager.backgroundSurface,
           body: SafeArea(
             child: SingleChildScrollView(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               padding: EdgeInsetsDirectional.symmetric(
                 horizontal: AppSize.s24.w,
-              ),
+              ).copyWith(bottom: AppPadding.p20.h + bottomInset),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
